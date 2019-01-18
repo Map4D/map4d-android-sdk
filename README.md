@@ -10,7 +10,7 @@ Map4D SDK for Android, written in C++, Java.
 Use Gradle
 ```xml
 dependencies {
-    implementation 'vn.map4d:map4dsdk:1.0.0'
+    implementation 'vn.map4d:map4dsdk:1.1.0'
 }
 ```
 Use Maven
@@ -18,7 +18,7 @@ Use Maven
 <dependency>
 	<groupId>vn.map4d</groupId>
 	<artifactId>map4dsdk</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<type>pom</type>
 </dependency>
 ```
