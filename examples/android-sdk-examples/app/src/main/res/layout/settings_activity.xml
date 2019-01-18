@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <fragment
+        android:id="@+id/settingsDemo"
+        class="vn.map4d.map4dsdk.maps.MFSupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/currentMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="16sp"
+        android:textColor="#575757"
+        android:text="@string/currentSwitchMode3D"
+        android:background="#ffff00"/>
+
+    <TextView
+        android:id="@+id/modeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/currentMode"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="16sp"
+        android:textColor="#575757"
+        android:text="@string/mode3dTo2d"
+        android:background="#ffff00"/>
+
+    <TextView
+        android:id="@+id/lat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currentMode"
+        android:layout_below="@+id/currentMode"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:textColor="#575757"
+        android:text="@string/lat"
+        android:background="#ffff00"/>
+
+    <TextView
+        android:id="@+id/lng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lat"
+        android:layout_below="@+id/lat"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:textColor="#575757"
+        android:text="@string/lng"
+        android:background="#ffff00"/>
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_alignTop="@+id/currentMode"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/time"
+        android:textSize="16sp"
+        android:textColor="#575757"
+        android:background="#ffff00"/>
+
+    <TextView
+        android:id="@+id/btnSetTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time"
+        android:layout_alignTop="@+id/lat"
+        android:layout_alignRight="@+id/time"
+        android:padding="5dp"
+        android:text="@string/setTime"
+        android:textColor="#ffffff"
+        android:background="#0000ff"/>
+    <Button
+        android:id="@+id/btnEnable3D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:text="@string/switchMode"
+        android:textSize="16sp"
+        android:textColor="#0055ff"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/btnSwitchMode3D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btnEnable3D"
+        android:layout_alignLeft="@+id/btnEnable3D"
+        android:layout_above="@+id/btnEnable3D"
+        android:layout_marginBottom="5dp"
+        android:text="@string/mode3dTo2d"
+        android:textSize="16sp"
+        android:textColor="#0055ff"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

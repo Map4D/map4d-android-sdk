@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">android-sdk-examples</string>
+    <string name="collections">Collections</string>
+    <string name="explorer">Explorer</string>
+    <string name="map2dDemo">Map 2D Demo</string>
+    <string name="map3dDemo">Map 3D Demo</string>
+    <string name="settings">Settings</string>
+    <string name="polyline">Polyline</string>
+    <string name="polygon">Polygon</string>
+    <string name="circle">Circle</string>
+    <string name="tileArea">Tile Area</string>
+    <string name="myLocation">My Location</string>
+    <string name="mapEvent">Map Events</string>
+    <string name="cameraAnimate">Camera Animate</string>
+    <string name="switchMode">3D Mode</string>
+    <string name="mode3d">3D Mode</string>
+    <string name="mode2d">2D Mode</string>
+    <string name="auto">auto</string>
+    <string name="manual">manual</string>
+    <string name="mode2dTo3d">2D->3D</string>
+    <string name="mode3dTo2d">3D->2D</string>
+    <string name="currentSwitchMode3D">Current Mode:</string>
+    <string name="lat">Lat: </string>
+    <string name="lng">Lng: </string>
+    <string name="time">Time</string>
+    <string name="setTime">SetTimeMap</string>
+    <string name="addMarker">Add Markers</string>
+    <string name="removeMarker">Clear Markers</string>
+    <string name="fitBounds">fit Bounds</string>
+    <string name="noMarkers">No Markers added</string>
+    <string name="customInfoWindow">Custom Info Window</string>
+    <string name="defaultInfoWindow">Default Info Window</string>
+    <string name="settings_description">about some setting map,ex: minZoom, maxZoom, maxNativeZoom,
+                                        get Current Mode, enable Mode,...</string>
+    <string name="marker">Marker</string>
+    <!--Polyline-->
+    <string name="addPolyline">Add Polyline</string>
+    <string name="removePolyline">Remove Polyline</string>
+    <string name="showPolyline">Show Polyline</string>
+    <string name="hidePolyline">Hide Polyline</string>
+    <string name="updatePolylinePath">Update Polyline Path</string>
+    <!--Polygon-->
+    <string name="addPolygon">Add Polygon</string>
+    <string name="removePolygon">Remove Polygon</string>
+    <string name="showPolygon">Show Polygon</string>
+    <string name="hidePolygon">Hide Polygon</string>
+    <string name="updatePolygonPath">Update Polygon Path</string>
+    <!--Circle-->
+    <string name="addCircle">Add Circle</string>
+    <string name="removeCircle">Remove Circle</string>
+    <string name="showCircle">Show Circle</string>
+    <string name="hideCircle">Hide Circle</string>
+    <string name="updateCircle">Update Circle</string>
+    <!--Tile Area-->
+    <string name="addTileArea">Add TileArea</string>
+    <string name="removeTileArea">Remove TileArea</string>
+    <string name="showTileArea">Show TileArea</string>
+    <string name="hideTileArea">Hide TileArea</string>
+    <string name="updateTileArea">Update TileArea</string>
+    <!--My Location-->
+    <string name="enableLocation">Enable My Location</string>
+    <string name="disableLocation">Disable My Location</string>
+    <!--Map Events-->
+    <string name="idleState">State: Camera Idle</string>
+    <string name="movingState">State: Camera Moving</string>
+    <string name="startedState">State: Camera Started</string>
+    <!--Camera Animate-->
+    <string name="animateSaiGon">Animate To Sai Gon</string>
+    <string name="animateDaNang">Animate To Da Nang</string>
+    <string name="moveSaiGon">Move to Sai Gon</string>
+    <string name="moveDanang">Move to Da Nang</string>
+</resources>

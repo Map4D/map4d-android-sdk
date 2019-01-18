@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CircleActivity">
+
+    <fragment
+        android:id="@+id/circleDemo"
+        class="vn.map4d.map4dsdk.maps.MFSupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/btnAddRemoveCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:text="@string/removeCircle"
+        android:textSize="16sp"
+        android:textColor="#0055ff"
+        android:textAllCaps="false"
+        android:background="#0000ffff"
+        />
+
+    <Button
+        android:id="@+id/btnShowHideCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnAddRemoveCircle"
+        android:layout_below="@+id/btnAddRemoveCircle"
+        android:text="@string/showCircle"
+        android:textSize="16sp"
+        android:textColor="#0055ff"
+        android:textAllCaps="false"
+        android:background="#0000ffff"/>
+
+    <Button
+        android:id="@+id/btnUpdateCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnAddRemoveCircle"
+        android:layout_below="@+id/btnShowHideCircle"
+        android:text="@string/updateCircle"
+        android:textSize="16sp"
+        android:textColor="#0055ff"
+        android:textAllCaps="false"
+        android:background="#0000ffff"/>
+
+</RelativeLayout>

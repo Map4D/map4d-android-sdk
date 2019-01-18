@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapEventsActivity">
+
+    <fragment
+        android:id="@+id/mapEventsDemo"
+        class="vn.map4d.map4dsdk.maps.MFSupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/txtMapState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#0055ff"
+        android:textAllCaps="false"
+        android:background="#ffff00" />
+
+    <TextView
+        android:id="@+id/txtCameraInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtMapState"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:singleLine="true"
+        android:textColor="#0055ff"
+        android:textAllCaps="false"
+        android:background="#ffff00"/>
+
+    <Button
+        android:id="@+id/btnSwitchMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:text="@string/switchMode"
+        android:textSize="16sp"
+        android:textColor="#0055ff"
+        android:textAllCaps="false" />
+
+</RelativeLayout>
