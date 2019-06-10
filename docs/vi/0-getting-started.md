@@ -10,34 +10,34 @@ dependencies {
 }
 ```
 
-  2. thêm quyền trong manifest
+  2. Thêm quyền trong manifest
   
 ```java
-<uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
+<uses-feature android:glEsVersion="0x00020000" android:required="true" />
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
-3. thêm access key trong manifest
+  3. Thêm access key trong manifest
 
+Để sử dụng map4d Android SDK, bạn cần phải có access key (bạn có thể sử dụng một access key cho các api trên web, iOS, Android). Để nhận được access key vui vòng truy cập đường link sau ([đăng ký key](http://map4d.vn))
 ```java
-<application
-...
+<application ...>
     android:theme="@style/AppTheme">
     <meta-data
         android:name="vn.map4d.map4dsdk.ACCESS_KEY"
-        android:value="98fd21346d83bee24dc734231f7609c9" />
-...
+        android:value="${access_key}" />
+    ...
+</application>
 ```
 
-## 2. Tạo map
 
-  - Khai báo 1 fragment để chứa map or MFMapView trong layout
+## 2. Tạo map
+  2.1. Sử dụng fragment 
+  - Khai báo 1 MFSupportMapFragment trong layout
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -77,36 +77,70 @@ public class Simple3DMapActivity extends AppCompatActivity implements OnMapReady
     }
 }
 ```
-
-**chú ý: cần destroy map khi dùng MFMapView**
-
+  2.2 Sử dụng View
+  - Khai báo 1 MFMapView trong layout
+  
+```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context=".Simple3DMapActivity">
+  
+      <vn.map4d.map4dsdk.maps.MFMapView
+                      android:id="@+id/map3D"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent" />
+  
+  </android.support.constraint.ConstraintLayout>
+```
+  - Khởi tạo map
+  
 ```java
- 	private MFMapView mapView;
-
+public class Simple3DMapActivity extends AppCompatActivity implements OnMapReadyCallback{ 
+    
+    private MFMapView mapView;
+  
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.simple3d_map_activity);
         mapView = findViewById(R.id.map3D);
-        mapView.getMapAsync(this);
+        mapView.getMapAsync(this); 
     }
+  
     @Override
-    protected void onDestroy() {
-        mapView.onDestroy();
+    public void onMapReady(Map4D map4D) { 
+        map4D.setMinZoomPreference(17.f);
+        map4D.enable3DMode(true); 
+    }
+      
+    @Override
+    protected void onDestroy() { 
+        mapView.onDestroy(); 
     }
 }
 ```
 
-## 3. Giới hạn mức zoom tối đa và tối thiểu
-```java
-	@Override
-    public void onMapReady(Map4D map4D) {
-        map4D.setMinZoomPreference(17.f);
-        map4D.setMaxZoomPreference(5.f);
-    }
-```
+**Chú ý: cần destroy map khi dùng MFMapView**
 
-## 4. Chế độ chuyển 2D và 3D
+## 3. Giới hạn mức zoom tối đa và tối thiểu
+
+Có thể giới hạn mức zoom của map nằm trong khoảng [minZoomPreference, maxZoomPreference]. Nếu không set thì giá trị mặc định sẽ là [0, 22].
+- Giá trị lớn nhất của mức zoom chỉ có thể là 22
+- Giá trị nhỏ nhất của mức zoom chỉ có thể là 0
+
+```java
+@Override
+public void onMapReady(Map4D map4D) {
+    map4D.setMinZoomPreference(17.f);
+    map4D.setMaxZoomPreference(5.f);
+}
+```
+Như ví dụ trên thì mức zoom của map chỉ có thể nằm trong khoảng [5, 17]. Mức zoom của map với cài đặt trên thì không thể < 5 và > 17.
+
+## 4. Các chế độ chuyển đổi mode 2D và 3D
 Cho phép thay đổi chế độ chuyển 2D & 3D của map. Có 4 chế độ:
 
 ```java
@@ -117,127 +151,97 @@ public enum MFSwitchMode
     Auto3DTo2D(2),
     Auto(3),
     Manual(4);
-
-    private int value;
-
-    MFSwitchMode(int value)
-    {
-        this.value = value;
-    }
-
-    public int getValue() {
-        return value;
-    }
 }
 ```
 
 ```android
- 	@Override
-    public void onMapReady(Map4D map4D) {
-        map4D.setSwitchMode(MFSwitchMode.Auto2DTo3D);
-    }
+@Override
+public void onMapReady(Map4D map4D) {
+    map4D.setSwitchMode(MFSwitchMode.Auto2DTo3D);
+}
 ```
 
 - Auto3DTo2D:
-  - **Không** tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom > 17.
-  - Khi map đang ở mức zoom > 17, map ở chế độ 3D thì khi điều khiển zoom xuống zoom < 17, map sẽ tự động chuyển về chế độ 2D.
+  - **Không** tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
+  - Khi map đang ở mức zoom >= 17, map ở chế độ 3D thì khi điều khiển zoom xuống zoom < 17, map sẽ tự động chuyển về chế độ 2D.
 - Auto2DTo3D:
-  - Tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom > 17.
-  - Khi map đang ở mức zoom > 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17.
-  - Khi map đang ở mức zoom > 17, nếu map đang chế độ 2D, thì map vẫn có thể zoom về mức zoom < 17.
+  - Tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
+  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17.
+  - Khi map đang ở mức zoom >= 17, nếu map đang chế độ 2D, thì map vẫn có thể zoom về mức zoom < 17.
 - Auto:
   - Tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
   - Tự động chuyển từ chế độ 3D sang 2D khi điều khiển zoom từ mức zoom >= 17 về mức zoom < 17.
 - Manual:
-  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17.  
+  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17. Map cũng không tự động chuyển về chế độ 3D khi zoom từ mức zoom 17 lên 18.
 - Default:
   - Chế độ mặc định là **Auto3DTo2D**
 
-**Chú ý: các chế độ này chỉ có tác dụng khi người dùng tương tác với map, không ảnh hưởng khi gọi hàm pan, fly hay setCamera**
+**Chú ý: các chế độ này chỉ có tác dụng khi người dùng tương tác với map, không ảnh hưởng khi gọi hàm animateCamera, moveCamera...**
 
-## 5. Thay đổi trạng thái và lấy các thông số của map.
+## 5. Lấy các thông số của map.
 Cho phép thay đổi các trạng thái và lấy các thông số của map như độ nghiêng, độ xoay, điểm trung tâm, mức zoom hiện tại
 
 ```java
-  map4D.getCameraPosition();
+map4D.getCameraPosition();
 ```
-
-- getCamera:
-  - Cho phép lấy thông tin các thông số camera hiện tại của map.
+Cho phép lấy thông tin các thông số camera hiện tại của map như mức zoom, tâm map, góc nghiêng, góc xoay.
 
 ```java
-  public boolean is3DMode()
+public boolean is3DMode()
 ```
-- is3DMode: trả về thông tin hiện tại map là 2D or 3D.
+Trả về thông tin hiện tại map là 2D or 3D.
   - false: 2D mode
   - true:  3D mode
-
+  
 ```java
-  public void setMinZoomPreference(double minZoom)
+MFUiSettings getUiSettings()
 ```
-- setMinZoomPreference: thiết lập mức zoom tối thiểu của map.
-
-
-```java
-  public void setMaxZoomPreference(double maxZoom)
-```
-- setMaxZoomPreference: thiết lập mức zoom tối đa của map.
+Trả về các thông số cài đặt giao diện của Map. Từ đối tượng này ta có thể cài đặt các thiết lập cho map như tắt xoay map, tắt/bật MyLocation layer... 
 
 ## 6. Di chuyển map
 Cho phép di chuyển map đến một vị trí bất kỳ
 
 ```java
-    public void moveCamera(@NonNull MFCameraUpdate cameraUpdate);
-    public void animateCamera(@NonNull MFCameraUpdate cameraUpdate);
-    public void animateCamera(@NonNull MFCameraUpdate cameraUpdate, int durationMs);
+// Di chuyển map ngay lập tức đến 1 vị trí mới.
+public void moveCamera(@NonNull MFCameraUpdate cameraUpdate);
+// Di chuyển map đến vị trí mới sử dụng animation. Thời gian di chuyển thì SDK sẽ tự tính.
+public void animateCamera(@NonNull MFCameraUpdate cameraUpdate);
+// Di chuyển map đến vị trí mới sử dụng animation. Thời gian di chuyển thì người dùng truyền vào.
+public void animateCamera(@NonNull MFCameraUpdate cameraUpdate, int durationMs);
 ```
 
-MFCameraUpdate:
+Chúng ta có thể tạo MFCameraUpdate thông qua MFCameraUpdateFactory.
+
+MFCameraUpdateFactory:
 
 ```java
-  public final class MFCameraUpdateFactory {
-
+public final class MFCameraUpdateFactory { 
     public static MFCameraUpdate newCameraPosition(@NonNull MFCameraPosition cameraPosition);
-   
     public static MFCameraUpdate newLatLng(@NonNull LatLng latLng) ;
-
     public static MFCameraUpdate newLatLngBounds(@NonNull LatLngBounds bounds, int padding) ;
-
     public static MFCameraUpdate newLatLngZoom(@NonNull LatLng latLng, double zoom);
-
     public static MFCameraUpdate zoomIn();
-
     public static MFCameraUpdate zoomOut();
-
     public static MFCameraUpdate zoomTo(double zoom);
 }
 ```
 
-MFCameraUpdate:
+- newCameraPosition: di chuyển map đến vị trí camera
+- newLatLng: di chuyển map đến vị trí LatLng mới với mức zoom hiện tại
+- newLatLngBounds: di chuyển map đến vị trị LatLng và mức zoom vừa vặn với LatLngBounds
+- newLatLngZoom: di chuyển map đến vị trí LatLng mới và mức zoom mới
+- zoomIn: mức zoom hiện tại +1
+- zoomIn: mức zoom hiện tại -1
+- zoomTo: di chuyển map tới mức zoom mong muốn
+
+Ví dụ:
 
 ```java
-public interface MFCameraUpdate {
-
-    MFCameraPosition getCameraPosition(@NonNull Map4D map4D);
-}
+MFCameraUpdate cameraUpdate1 = MFCameraUpdateFactory.newLatLng(new LatLng(10.7677, 106.7023));
+MFCameraUpdate cameraUpdate2 = MFCameraUpdateFactory.newLatLngZoom(new LatLng(10.7677, 106.7023), 22.0);
+MFCameraUpdate cameraUpdate3 = MFCameraUpdateFactory.zoomIn();
+...
 ```
-
-- **moveCamera**: di chuyển map đến 1 vị trí camera position
-  - CameraPosition: di chuyển đến vị trí camera
-  - LatLng: vị trí Lat Long
-  - LatLngBounds: vị trí LatLng và zoom của LatLngBounds
-  - LatLngZoom: vị trí và mức zoom mong muốn
-  - ZoomIn: mức zoom hiện tại + 1
-  - ZoomOut: mức zoom hiện tại -1
-  - ZoomTo: mức zoom mong muốn
-- **animateCamera**: di chuyển map đến 1 vị trí camera, bao gồm các loại sau:
-  - CameraPosition: di chuyển đến vị trí camera
-  - LatLng: vị trí Lat Long
-  - LatLngBounds: vị trí LatLng và zoom của LatLngBounds
-  - LatLngZoom: vị trí và mức zoom mong muốn
-  - ZoomIn: mức zoom hiện tại + 1
-  - ZoomOut: mức zoom hiện tại -1
-  - ZoomTo: mức zoom mong muốn 
 
 License
 -------
