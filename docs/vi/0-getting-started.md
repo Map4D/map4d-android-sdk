@@ -106,18 +106,7 @@ public class Simple3DMapActivity extends AppCompatActivity implements OnMapReady
     }
 ```
 
-## 4. Bật tắt chế độ 3D & 2D
-Cho phép tắt bật chế độ 2D và 3D
-
-```java
-  @Override
-    public void onMapReady(Map4D map4D) {
-        map4D.enable3DMode(true); // bật chế độ 3D
-        map4D.enable3DMode(false); // tắt chế độ 3D chuyển về 2D
-    }
-```
-
-## 5. Chế độ chuyển 2D và 3D
+## 4. Chế độ chuyển 2D và 3D
 Cho phép thay đổi chế độ chuyển 2D & 3D của map. Có 4 chế độ:
 
 ```java
@@ -166,7 +155,7 @@ public enum MFSwitchMode
 
 **Chú ý: các chế độ này chỉ có tác dụng khi người dùng tương tác với map, không ảnh hưởng khi gọi hàm pan, fly hay setCamera**
 
-## 6. Thay đổi trạng thái và lấy các thông số của map.
+## 5. Thay đổi trạng thái và lấy các thông số của map.
 Cho phép thay đổi các trạng thái và lấy các thông số của map như độ nghiêng, độ xoay, điểm trung tâm, mức zoom hiện tại
 
 ```java
@@ -194,19 +183,7 @@ Cho phép thay đổi các trạng thái và lấy các thông số của map nh
 ```
 - setMaxZoomPreference: thiết lập mức zoom tối đa của map.
 
-## 7. Thay đổi thời gian của map
-Map 4D SDK cho phép người dùng thiết lập thời gian cho map, dữ liệu 3D và các địa điểm sẽ được lấy theo thời gian người dùng thiết lập, mặc định sẽ lấy thời gian hiện tại.
-
-```java
-  String givenDateString = "2000-01-01";
-  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-  try {
-    Date mDate = sdf.parse(givenDateString);
-    map4D.setTime(mDate);
-  } catch (ParseException e) {
-  }
-```
-## 8. Di chuyển map
+## 6. Di chuyển map
 Cho phép di chuyển map đến một vị trí bất kỳ
 
 ```java
