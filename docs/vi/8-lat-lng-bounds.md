@@ -80,13 +80,39 @@ private void createLatLngBounds() {
 
 ***Sử dụng:***
 
-```javascript
-  LatLngBounds.Builder builder = new LatLngBounds.Builder();
-  for (MFMarker marker : markersList) {
-    builder.include(marker.getPosition());
+```java
+  private final List<MFMarker> markersList = new ArrayList<>();
+
+  private void addMarkersToMap() {
+      int numMarkersInRainbow = 12;
+      for (int i = 0; i < numMarkersInRainbow; i++) {
+          MFMarker marker = map4D.addMarker(new MFMarkerOptions()
+                  .position(new LatLng(
+                          10 + 0.8 * Math.sin(i * Math.PI / (numMarkersInRainbow - 1)),
+                          106 - 0.8 * Math.cos(i * Math.PI / (numMarkersInRainbow - 1))))
+                  .title("Marker  " + i)
+                  .snippet(String.format("%f", 10 + 0.8 * Math.sin(i * Math.PI / (numMarkersInRainbow - 1)))
+                          + ", "
+                          + String.format("%f",106 - 0.8 * Math.cos(i * Math.PI / (numMarkersInRainbow - 1)))));
+          markersList.add(marker);
+      }
+      View view = createMarkerView();
+      MFMarker markerView = map4D.addMarker(new MFMarkerOptions()
+              .position(new LatLng(13.0006, 106.784))
+              .title("Marker  13")
+              .snippet(13.0006f + ", " + 106.784f)
+              .iconView(view));
+      markersList.add(markerView);
   }
-  MFCameraPosition cameraPosition = map4D.getCameraPositionForLatLngBounds(builder.build(), 10);
-  map4D.moveCamera(MFCameraUpdateFactory.newCameraPosition(cameraPosition));
+  
+  void fitBounds(){
+    LatLngBounds.Builder builder = new LatLngBounds.Builder();
+    for (MFMarker marker : markersList) {
+      builder.include(marker.getPosition());
+    }
+    MFCameraPosition cameraPosition = map4D.getCameraPositionForLatLngBounds(builder.build(), 10);
+    map4D.moveCamera(MFCameraUpdateFactory.newCameraPosition(cameraPosition));
+  }
 ```
 
 
