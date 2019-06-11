@@ -1,4 +1,5 @@
 # Marker
+
 Lớp Marker cho phép người dùng add một điểm ghim trên bản đồ tại một vị trí xác định.
 
 ## 1. Marker & MarkerOptions
@@ -49,6 +50,8 @@ public final class MFMarker extends Annotation {
 ```
 
 ## 2. Tạo marker
+
+![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-android-sdk/master/docs/resource/3-marker.png)
 
 ```java
 map4D.addMarker(new MFMarkerOptions().position(new LatLng(10.771666, 106.704405)));

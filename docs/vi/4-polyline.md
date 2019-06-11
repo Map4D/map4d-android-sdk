@@ -47,6 +47,8 @@ public final class MFPolyline extends Annotation {
 
 ## 2. Tạo polyline
 
+![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-android-sdk/master/docs/resource/4-polyline.png)
+
 - Tạo đối tượng polyline từ PolylineOptions
 
 ```java
