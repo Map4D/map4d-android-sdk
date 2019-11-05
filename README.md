@@ -10,7 +10,7 @@ Map4D SDK for Android, written in C++, Java.
 Use Gradle
 ```xml
 dependencies {
-    implementation 'vn.map4d:map4dsdk:1.1.0'
+    implementation 'vn.map4d:map4dsdk:1.2.0'
 }
 ```
 Use Maven
@@ -18,7 +18,7 @@ Use Maven
 <dependency>
 	<groupId>vn.map4d</groupId>
 	<artifactId>map4dsdk</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<type>pom</type>
 </dependency>
 ```
@@ -76,6 +76,32 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 }
 ```
+## Document References
+[1. Getting started](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/0-getting-started.md) 
+
+[2. Map user interaction](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/1-map-user-interaction.md) 
+
+[3. Map events](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/2-map-events.md)
+
+[4. Marker](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/3-marker.md)
+
+[5. Polyline](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/4-polyline.md)
+
+[6. Polygon](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/5-polygon.md)
+
+[7. Circle](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/6-circle.md)
+
+[8. Tile area](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/7-tile-area.md)
+
+[9. LatLngBounds](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/8-lat-lng-bounds.md)
+
+[10. Map utils](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/9-map-utils.md)
+
+[11. 3D objects](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/10-3d-objects.md)
+
+[12. Effect](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/11-effect-map.md)
+
+[13. Place](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.2/12-place.md)
 
 License
 -------
