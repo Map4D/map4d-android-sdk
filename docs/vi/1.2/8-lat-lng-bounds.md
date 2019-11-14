@@ -74,8 +74,11 @@ private void createLatLngBounds() {
 ## 3. Hướng dẫn sử dụng fitBounds
 
 ```java
- public MFCameraPosition getCameraPositionForLatLngBounds(LatLngBounds latLngBounds,
-                                                     int padding);
+ public MFCameraPosition getCameraPositionForBounds(LatLngBounds latLngBounds,
+                                                     int padding); // padding: point (dp)
+
+ public MFCameraPosition getCameraPositionForBounds(LatLngBounds latLngBounds,
+                                                     int paddingLeft, int paddingTop, int paddingRight, int paddingBottom));
 ```
 
 ***Sử dụng:***
@@ -111,6 +114,8 @@ private void createLatLngBounds() {
       builder.include(marker.getPosition());
     }
     MFCameraPosition cameraPosition = map4D.getCameraPositionForLatLngBounds(builder.build(), 10);
+	
+    //MFCameraPosition cameraPosition = map4D.getCameraPositionForLatLngBounds(builder.build(), 100, 200, 0, 0);
     map4D.moveCamera(MFCameraUpdateFactory.newCameraPosition(cameraPosition));
   }
 ```
