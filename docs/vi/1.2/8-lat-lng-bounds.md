@@ -1,10 +1,10 @@
-# LatLngBounds
-Lớp LatLngBounds đại diện cho một hình chữ nhật trong toạ độ địa lý, được biểu diễn bởi toạ độ 2 cực đông bắc và tây nam.
+# MFCoordinateBounds
+Lớp MFCoordinateBounds đại diện cho một hình chữ nhật trong toạ độ địa lý, được biểu diễn bởi toạ độ 2 cực đông bắc và tây nam.
 
-## 1. LatLngBounds
+## 1. MFCoordinateBounds
 
 ```java
-public class LatLngBounds implements Parcelable {
+public class MFCoordinateBounds implements Parcelable {
 
     private static final double MAX_LATITUDE = 85.051128779806604;
 
@@ -14,19 +14,19 @@ public class LatLngBounds implements Parcelable {
 
     private static final double MIN_LONGITUDE = -180.0;
 
-    private LatLng southwest; // điểm tây nam của Bounds
+    private MFLocationCoordinate southwest; // điểm tây nam của Bounds
 
-    private LatLng northeast; // điểm đông bắc của Bounds
+    private MFLocationCoordinate northeast; // điểm đông bắc của Bounds
  
-    public LatLngBounds(LatLng southwest, LatLng northeast); // khởi tạo
+    public MFCoordinateBounds(MFLocationCoordinate southwest, MFLocationCoordinate northeast); // khởi tạo
     
-    public LatLng getSouthwest(); // lấy điểm Tây Nam
+    public MFLocationCoordinate getSouthwest(); // lấy điểm Tây Nam
    
-    public LatLng getNortheast();  // lấy điểm Đông Bắc
+    public MFLocationCoordinate getNortheast();  // lấy điểm Đông Bắc
 
-    static LatLngBounds world();  // bounds cho world
+    static MFCoordinateBounds world();  // bounds cho world
 
-    protected LatLngBounds(Parcel in)
+    protected MFCoordinateBounds(Parcel in)
 
     @Override
     public void writeToParcel(Parcel dest, int flags)
@@ -34,50 +34,50 @@ public class LatLngBounds implements Parcelable {
     @Override
     public int describeContents()
 
-    public static final Creator<LatLngBounds> CREATOR = new Creator<LatLngBounds>();
+    public static final Creator<MFCoordinateBounds> CREATOR = new Creator<MFCoordinateBounds>();
 
     public static Builder builder(); // builder pattern to make bounds
 
-    public LatLngBounds include(LatLng latLng); // add 1 điểm rồi tính lại bounds
+    public MFCoordinateBounds include(MFLocationCoordinate latLng); // add 1 điểm rồi tính lại bounds
 
-    public boolean contains(final LatLng latLng); //  check latlng có nằm trong bounds
+    public boolean contains(final MFLocationCoordinate latLng); //  check latlng có nằm trong bounds
     
-    static LatLngBounds fromLatLngs(final List<? extends LatLng> latLngs); // tạo bounds từ list LatLng
+    static MFCoordinateBounds fromCoordinates(final List<? extends MFLocationCoordinate> latLngs); // tạo bounds từ list LatLng
 
     public static final class Builder {
 
-        private final List<LatLng> latLngList = new ArrayList<>();
+        private final List<MFLocationCoordinate> latLngList = new ArrayList<>();
 
-        public LatLngBounds build();
+        public MFCoordinateBounds build();
 
-        public Builder includes(List<LatLng> latLngs); // add 1 LatLng vào Bounds
+        public Builder includes(List<MFLocationCoordinate> latLngs); // add 1 LatLng vào Bounds
 
-        public Builder include(@NonNull LatLng latLng); // add 1 List LatLng vào bounds
+        public Builder include(@NonNull MFLocationCoordinate latLng); // add 1 List LatLng vào bounds
     }
 }
 ```
 
-## 2. Tạo đối tượng LatLngBounds
+## 2. Tạo đối tượng MFCoordinateBounds
 
 ```java
-private LatLngBounds latLngBounds = null;
+private MFCoordinateBounds latLngBounds = null;
 
 private void createLatLngBounds() {
-	List<LatLng> pointsList = new ArrayList<>();
-	pointsList.add(new LatLng(16.058227, 108.200483));
-	pointsList.add(new LatLng(16.074311, 108.212628));
-	pointsList.add(new LatLng(16.073115, 108.192587));
-	latLngBounds = new LatLngBounds.Builder().includes(pointsList).build();
+	List<MFLocationCoordinate> pointsList = new ArrayList<>();
+	pointsList.add(new MFLocationCoordinate(16.058227, 108.200483));
+	pointsList.add(new MFLocationCoordinate(16.074311, 108.212628));
+	pointsList.add(new MFLocationCoordinate(16.073115, 108.192587));
+	latLngBounds = new MFCoordinateBounds.Builder().includes(pointsList).build();
 }
 ```
 
 ## 3. Hướng dẫn sử dụng fitBounds
 
 ```java
- public MFCameraPosition getCameraPositionForBounds(LatLngBounds latLngBounds,
+ public MFCameraPosition getCameraPositionForBounds(MFCoordinateBounds latLngBounds,
                                                      int padding); // padding: point (dp)
 
- public MFCameraPosition getCameraPositionForBounds(LatLngBounds latLngBounds,
+ public MFCameraPosition getCameraPositionForBounds(MFCoordinateBounds latLngBounds,
                                                      int paddingLeft, int paddingTop, int paddingRight, int paddingBottom));
 ```
 
@@ -90,7 +90,7 @@ private void createLatLngBounds() {
       int numMarkersInRainbow = 12;
       for (int i = 0; i < numMarkersInRainbow; i++) {
           MFMarker marker = map4D.addMarker(new MFMarkerOptions()
-                  .position(new LatLng(
+                  .position(new MFLocationCoordinate(
                           10 + 0.8 * Math.sin(i * Math.PI / (numMarkersInRainbow - 1)),
                           106 - 0.8 * Math.cos(i * Math.PI / (numMarkersInRainbow - 1))))
                   .title("Marker  " + i)
@@ -101,7 +101,7 @@ private void createLatLngBounds() {
       }
       View view = createMarkerView();
       MFMarker markerView = map4D.addMarker(new MFMarkerOptions()
-              .position(new LatLng(13.0006, 106.784))
+              .position(new MFLocationCoordinate(13.0006, 106.784))
               .title("Marker  13")
               .snippet(13.0006f + ", " + 106.784f)
               .iconView(view));
@@ -109,13 +109,13 @@ private void createLatLngBounds() {
   }
   
   void fitBounds(){
-    LatLngBounds.Builder builder = new LatLngBounds.Builder();
+    MFCoordinateBounds.Builder builder = new MFCoordinateBounds.Builder();
     for (MFMarker marker : markersList) {
       builder.include(marker.getPosition());
     }
-    MFCameraPosition cameraPosition = map4D.getCameraPositionForLatLngBounds(builder.build(), 10);
+    MFCameraPosition cameraPosition = map4D.getCameraPositionForBounds(builder.build(), 10);
 	
-    //MFCameraPosition cameraPosition = map4D.getCameraPositionForLatLngBounds(builder.build(), 100, 200, 0, 0);
+    //MFCameraPosition cameraPosition = map4D.getCameraPositionForBounds(builder.build(), 100, 200, 0, 0);
     map4D.moveCamera(MFCameraUpdateFactory.newCameraPosition(cameraPosition));
   }
 ```

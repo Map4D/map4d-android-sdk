@@ -6,7 +6,8 @@
   
 ```java
 dependencies {
-  implementation 'vn.map4d:map4dsdk:1.2.0'
+  implementation 'vn.map4d:Map4dTypes:1.0.5'
+  implementation 'vn.map4d:Map4dMap:1.2.12'
 }
 ```
 
@@ -28,7 +29,7 @@ dependencies {
 <application ...>
     android:theme="@style/AppTheme">
     <meta-data
-        android:name="vn.map4d.map4dsdk.ACCESS_KEY"
+        android:name=""vn.map4d.map.ACCESS_KEY""
         android:value="${access_key}" />
     ...
 </application>
@@ -119,6 +120,7 @@ public class Simple3DMapActivity extends AppCompatActivity implements OnMapReady
     @Override
     protected void onDestroy() { 
         mapView.onDestroy(); 
+        super.onDestroy();
     }
 }
 ```
@@ -218,9 +220,9 @@ MFCameraUpdateFactory:
 ```java
 public final class MFCameraUpdateFactory { 
     public static MFCameraUpdate newCameraPosition(@NonNull MFCameraPosition cameraPosition);
-    public static MFCameraUpdate newLatLng(@NonNull LatLng latLng) ;
-    public static MFCameraUpdate newLatLngBounds(@NonNull LatLngBounds bounds, int padding) ;
-    public static MFCameraUpdate newLatLngZoom(@NonNull LatLng latLng, double zoom);
+    public static MFCameraUpdate newCoordinate(@NonNull MFLocationCoordinate coordinate) ;
+    public static MFCameraUpdate newCoordinateBounds(@NonNull MFCoordinateBounds bounds, int padding) ;
+    public static MFCameraUpdate newCoordinateZoom(@NonNull MFLocationCoordinate latLng, double zoom);
     public static MFCameraUpdate zoomIn();
     public static MFCameraUpdate zoomOut();
     public static MFCameraUpdate zoomTo(double zoom);
@@ -230,16 +232,16 @@ public final class MFCameraUpdateFactory {
 - Ví dụ
 
 ```java
-    MFCameraUpdate cameraUpdate = MFCameraUpdateFactory.newCameraPosition(new MFCameraPosition.Builder().target(new LatLng(10.772302, 106.701901)).zoom(17.f).build());
+    MFCameraUpdate cameraUpdate = MFCameraUpdateFactory.newCameraPosition(new MFCameraPosition.Builder().target(new MFLocationCoordinate(10.772302, 106.701901)).zoom(17.f).build());
     map4D.animateCamera(cameraUpdate);
 ```
 
 - newCameraPosition: di chuyển map đến vị trí camera
     - Support tilt and bearing
     - Nếu người dùng ko truyền giá trị thì mặc định là tilt, bearing, zoom, target của camera hiện tại.
-- newLatLng: di chuyển map đến vị trí LatLng mới với mức zoom hiện tại
-- newLatLngBounds: di chuyển map đến vị trị LatLng và mức zoom vừa vặn với LatLngBounds
-- newLatLngZoom: di chuyển map đến vị trí LatLng mới và mức zoom mới
+- newCoordinate: di chuyển map đến vị trí MFLocationCoordinate(LatLng) mới với mức zoom hiện tại
+- newCoordinateBounds: di chuyển map đến vị trị MFLocationCoordinate(LatLng) và mức zoom vừa vặn với MFCoordinateBounds
+- newCoordinateZoom: di chuyển map đến vị trí MFLocationCoordinate(LatLng) mới và mức zoom mới
 - zoomIn: mức zoom hiện tại +1
 - zoomIn: mức zoom hiện tại -1
 - zoomTo: di chuyển map tới mức zoom mong muốn
@@ -247,8 +249,8 @@ public final class MFCameraUpdateFactory {
 Ví dụ:
 
 ```java
-MFCameraUpdate cameraUpdate1 = MFCameraUpdateFactory.newLatLng(new LatLng(10.7677, 106.7023));
-MFCameraUpdate cameraUpdate2 = MFCameraUpdateFactory.newLatLngZoom(new LatLng(10.7677, 106.7023), 22.0);
+MFCameraUpdate cameraUpdate1 = MFCameraUpdateFactory.newCoordinate(new MFLocationCoordinate(10.7677, 106.7023));
+MFCameraUpdate cameraUpdate2 = MFCameraUpdateFactory.newCoordinateZoom(new MFLocationCoordinate(10.7677, 106.7023), 22.0);
 MFCameraUpdate cameraUpdate3 = MFCameraUpdateFactory.zoomIn();
 ...
 ```

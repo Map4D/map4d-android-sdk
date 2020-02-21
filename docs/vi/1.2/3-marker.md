@@ -7,7 +7,7 @@ Lớp Marker cho phép người dùng add một điểm ghim trên bản đồ t
 ```java
 
 public final class MFMarkerOptions {
-    private LatLng position; // vị trí của marker
+    private MFLocationCoordinate position; // vị trí của marker
     private MFBitmapDescriptor icon; // icon của marker
     private View iconView; // custom view icon của maker
     private double anchorU; // anchorU của marker
@@ -23,7 +23,7 @@ public final class MFMarkerOptions {
 
 public final class MFMarker extends Annotation {
     public MFMarker(@NonNull MFMarkerOptions markerOptions, @NonNull AnnotationDelegate annotationDelegate);
-    public LatLng getPosition(); // vị trí của marker
+    public MFLocationCoordinate getPosition(); // vị trí của marker
     public MFBitmapDescriptor getIcon();
     public double getAnchorU(); // anchorU của Marker
     public double getAnchorV(); // anchorV của Marker
@@ -37,7 +37,7 @@ public final class MFMarker extends Annotation {
     public float getWindowAnchorV(); // anchorV của marker trong khoảng [0, 1]
     public void hideInfoWindow(); // ẩn infoWindow
     public boolean isInfoWindowShown(); //check infoWindow show or hide
-    public void setPosition(@NonNull final LatLng position); //position của marker on Map
+    public void setPosition(@NonNull final MFLocationCoordinate position); //position của marker on Map
     public void setSnippet(String snippet); //set snippet cho Marker
     public void setTitle(String title); //set Tittle cho marker
     public void setWindowAnchor(float windowAnchorU, float windowAnchorV); // infoWindow Anchor
@@ -54,7 +54,7 @@ public final class MFMarker extends Annotation {
 ![CocoaPods](https://raw.githubusercontent.com/map4d/map4d-android-sdk/master/docs/resource/3-marker.png)
 
 ```java
-map4D.addMarker(new MFMarkerOptions().position(new LatLng(10.771666, 106.704405)));
+map4D.addMarker(new MFMarkerOptions().position(new MFLocationCoordinate(10.771666, 106.704405)));
 ```
 
 Như ví dụ trên thì chúng ta tạo một marker ở vị trí (10.771666, 106.704405) tính theo LatLng với icon là mặc định.
@@ -62,7 +62,7 @@ Nếu muốn truyền vào icon khác thì dùng như sau:
 
 ```java
 map4D.addMarker(new MFMarkerOptions()
-    .position(new LatLng(10.771666, 106.704405))
+    .position(new MFLocationCoordinate(10.771666, 106.704405))
     .icon(MFBitmapDescriptorFactory.fromResource(R.drawable.markerIcon)));
 ```
 
@@ -82,7 +82,7 @@ public final class MFBitmapDescriptorFactory {
 
 ```java
 MFMarker markerView = map4D.addMarker(new MFMarkerOptions()
-            .position(new LatLng(13.0006, 106.784))
+            .position(new MFLocationCoordinate(13.0006, 106.784))
             .iconView(view));
 ```
 
@@ -91,7 +91,7 @@ MFMarker markerView = map4D.addMarker(new MFMarkerOptions()
 Để xóa marker khỏi bản đồ ta sử dụng hàm *remove* 
 
 ```java
-MFMarker marker = map4D.addMarker(new MFMarkerOptions().position(new LatLng(10.771666, 106.704405)));
+MFMarker marker = map4D.addMarker(new MFMarkerOptions().position(new MFLocationCoordinate(10.771666, 106.704405)));
 marker.remove();
 ```
 
@@ -118,7 +118,7 @@ map4D.setOnMarkerClickListener(new Map4D.OnMarkerClickListener() {
 - Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dùng click vào marker, thông tin marker sẽ được hiển thị dựa vào điểm neo *windowAnchorU* và *windowAnchorV*.
 ```java
 map4D.addMarker(new MFMarkerOptions()
-    .position(new LatLng(10.771666, 106.704405))
+    .position(new MFLocationCoordinate(10.771666, 106.704405))
     .icon(MFBitmapDescriptorFactory.fromResource(R.drawable.markerIcon))
     .title("Title")
     .snippet("Snippet"));
@@ -201,12 +201,12 @@ Ví dụ:
 ```java
 
     MFMarker markerA = map4D.addMarker(new MFMarkerOptions()
-                      .position(new LatLng(10.771666, 106.704405))
+                      .position(new MFLocationCoordinate(10.771666, 106.704405))
                       .icon(MFBitmapDescriptorFactory.fromResource(R.drawable.ic_default_marker))
                       .zIndex(5.f));
 
     MFMarker markerB = map4D.addMarker(new MFMarkerOptions()
-                        .position(new LatLng(10.771666, 106.704405))
+                        .position(new MFLocationCoordinate(10.771666, 106.704405))
                         .icon(MFBitmapDescriptorFactory.fromResource(R.drawable.ic_my_position))
                         .zIndex(2.f));
 ```
@@ -218,11 +218,11 @@ Ví dụ:
 ```java
 
     MFMarker markerA = map4D.addMarker(new MFMarkerOptions()
-                          .position(new LatLng(10.771666, 106.704405))
+                          .position(new MFLocationCoordinate(10.771666, 106.704405))
                           .icon(MFBitmapDescriptorFactory.fromResource(R.drawable.ic_default_marker)));
 
     MFMarker markerB = map4D.addMarker(new MFMarkerOptions()
-                          .position(new LatLng(10.771666, 106.704405))
+                          .position(new MFLocationCoordinate(10.771666, 106.704405))
                           .icon(MFBitmapDescriptorFactory.fromResource(R.drawable.ic_my_position)));
 
 ```

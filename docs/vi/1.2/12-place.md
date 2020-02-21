@@ -10,7 +10,7 @@ public class MFPlace {
 
   private String address;
 
-  private LatLng location;
+  private MFLocationCoordinate location;
 
   private String iconColor;
 

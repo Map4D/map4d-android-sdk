@@ -4,7 +4,7 @@ Lớp Polyline cho phép người dùng vẽ một polyline lên map.
 ## 1. Polyline & PolylineOptions
 ```java
 public final class MFPolylineOptions {
-    private List<LatLng> points; //Một mảng danh sách các toạ độ cần vẽ polyline lên map.
+    private List<MFLocationCoordinate> points; //Một mảng danh sách các toạ độ cần vẽ polyline lên map.
     private String color; // Màu sắc
     private float alpha; // Độ trong suốt
     private float width; // Chiều rộng polyline
@@ -14,8 +14,8 @@ public final class MFPolylineOptions {
     private float zIndex;  // thứ tự vẽ của polyline. default = -1.f
     public MFPolylineOptions();
     
-    public MFPolylineOptions add(LatLng... points); // add một list points
-    public MFPolylineOptions add(LatLng point); // add 1 point
+    public MFPolylineOptions add(MFLocationCoordinate... points); // add một list points
+    public MFPolylineOptions add(MFLocationCoordinate point); // add 1 point
     public MFPolylineOptions color(String color); // set color của polyline
     public MFPolylineOptions alpha(float alpha); // set độ trong suốt
     public MFPolylineOptions width(float width); //set width của polyline
@@ -23,7 +23,7 @@ public final class MFPolylineOptions {
     public MFPolylineOptions closed(boolean closed); // cho điểm đầu nối điểm cuối 
     public MFPolylineOptions style(MFPolylineStyle style); // kiểu đường nét đứt hoặc nét liền
     public MFPolylineOptions zIndex(float zIndex); // thứ tự vẽ
-    public List<LatLng> getPoints(); // lấy danh sách điểm tọa độ cần vẽ của polyline
+    public List<MFLocationCoordinate> getPoints(); // lấy danh sách điểm tọa độ cần vẽ của polyline
     public String getColor(); // lấy màu sắc của polyline
     public float getAlpha(); // lấy độ trong suốt của polyline
     public float getWidth(); // lấy độ rộng của polyline;
@@ -36,7 +36,7 @@ public final class MFPolylineOptions {
 public final class MFPolyline extends Annotation {
     public MFPolyline(@NonNull MFPolylineOptions polylineOptions,
                       @NonNull AnnotationDelegate annotationDelegate); // khởi tạp polyline từ MFPolylineOptions
-    public List<LatLng> getPoints(); // lấy danh sách điểm tọa độ cần vẽ của polyline
+    public List<MFLocationCoordinate> getPoints(); // lấy danh sách điểm tọa độ cần vẽ của polyline
     public String getColor(); // lấy màu sắc
     public float getAlpha(); // lấy độ trong suốt
     public float getWidth(); // lấy độ rộng
@@ -46,7 +46,7 @@ public final class MFPolyline extends Annotation {
     public void setColor(@NonNull String color); // set màu sắc
     public void setAlpha(float alpha); // set độ trong suốt
     public void setVisible(boolean visible); // cho phép ẩn/hiện
-    public void setPath(List<LatLng> path); // Set path cho Polyline
+    public void setPath(List<MFLocationCoordinate> path); // Set path cho Polyline
     public void remove(); // Remove polyline ra khoi map
 }
 ```
@@ -58,15 +58,15 @@ public final class MFPolyline extends Annotation {
 - Tạo đối tượng polyline từ PolylineOptions
 
 ```java
-  private final List<LatLng> latLngList = new ArrayList<>();
+  private final List<MFLocationCoordinate> latLngList = new ArrayList<>();
 
-  latLngList.add(new LatLng(16.067218, 108.213916));
-  latLngList.add(new LatLng(16.066496, 108.210311));
-  latLngList.add(new LatLng(16.064877, 108.210397));
-  latLngList.add(new LatLng(16.059980, 108.211137));
-  latLngList.add(new LatLng(16.059516, 108.208358));
+  latLngList.add(new MFLocationCoordinate(16.067218, 108.213916));
+  latLngList.add(new MFLocationCoordinate(16.066496, 108.210311));
+  latLngList.add(new MFLocationCoordinate(16.064877, 108.210397));
+  latLngList.add(new MFLocationCoordinate(16.059980, 108.211137));
+  latLngList.add(new MFLocationCoordinate(16.059516, 108.208358));
 
-  polyline = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new LatLng[latLngList.size()]))
+  polyline = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
                 .color("#0000ff")
                 .width(8)
                 .closed(false)
@@ -82,15 +82,15 @@ Ví dụ trên thì chúng ta tạo một polyline từ danh sách các tọa đ
 - Tạo Polyline nét đứt. Mặc định style là nét liền.
 
 ```java
-  final List<LatLng> latLngList = new ArrayList<>();
+  final List<MFLocationCoordinate> latLngList = new ArrayList<>();
 
-  latLngList.add(new LatLng(16.067218, 108.213916));
-  latLngList.add(new LatLng(16.066496, 108.210311));
-  latLngList.add(new LatLng(16.064877, 108.210397));
-  latLngList.add(new LatLng(16.059980, 108.211137));
-  latLngList.add(new LatLng(16.059516, 108.208358));
+  latLngList.add(new MFLocationCoordinate(16.067218, 108.213916));
+  latLngList.add(new MFLocationCoordinate(16.066496, 108.210311));
+  latLngList.add(new MFLocationCoordinate(16.064877, 108.210397));
+  latLngList.add(new MFLocationCoordinate(16.059980, 108.211137));
+  latLngList.add(new MFLocationCoordinate(16.059516, 108.208358));
 
-  polyline = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new LatLng[latLngList.size()]))
+  polyline = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
                 .color("#0000ff")
                 .width(8)
                 .closed(false)
@@ -128,20 +128,20 @@ Phát sinh khi người dùng click vào polyline
 - zIndex: Polyline nào có zIndex lớn hơn sẽ ưu tiên hiển thị trước, zIndex càng lớn càng sẽ được vẽ sau.
 
 ```java
-	final List<LatLng> latLngList = new ArrayList<>();
-    latLngList.add(new LatLng(16.067218, 108.213916));
-    latLngList.add(new LatLng(16.066496, 108.210311));
-    latLngList.add(new LatLng(16.064877, 108.210397));
-    latLngList.add(new LatLng(16.059980, 108.211137));
-    latLngList.add(new LatLng(16.059516, 108.208358));
+	final List<MFLocationCoordinate> latLngList = new ArrayList<>();
+    latLngList.add(new MFLocationCoordinate(16.067218, 108.213916));
+    latLngList.add(new MFLocationCoordinate(16.066496, 108.210311));
+    latLngList.add(new MFLocationCoordinate(16.064877, 108.210397));
+    latLngList.add(new MFLocationCoordinate(16.059980, 108.211137));
+    latLngList.add(new MFLocationCoordinate(16.059516, 108.208358));
     
-    MFPolylineA polylineA = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new LatLng[latLngList.size()]))
+    MFPolylineA polylineA = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
                     .color("#0000ff")
                     .width(8)
                     .zIndex(5.f)
                     .alpha(1.f));
                     
-    MFPolyline polylineB = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new LatLng[latLngList.size()]))
+    MFPolyline polylineB = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
                     .color("#0000ff")
                     .width(8)
                     .zindex(10.f)
@@ -154,20 +154,20 @@ Như ví dụ ở trên thì polylineB sẽ đè lên polylineA vì nó có zInd
 **Ví dụ:**
 
 ```java
-	final List<LatLng> latLngList = new ArrayList<>();
-    latLngList.add(new LatLng(16.067218, 108.213916));
-    latLngList.add(new LatLng(16.066496, 108.210311));
-    latLngList.add(new LatLng(16.064877, 108.210397));
-    latLngList.add(new LatLng(16.059980, 108.211137));
-    latLngList.add(new LatLng(16.059516, 108.208358));
+	final List<MFLocationCoordinate> latLngList = new ArrayList<>();
+    latLngList.add(new MFLocationCoordinate(16.067218, 108.213916));
+    latLngList.add(new MFLocationCoordinate(16.066496, 108.210311));
+    latLngList.add(new MFLocationCoordinate(16.064877, 108.210397));
+    latLngList.add(new MFLocationCoordinate(16.059980, 108.211137));
+    latLngList.add(new MFLocationCoordinate(16.059516, 108.208358));
     
-    MFPolylineA polylineA = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new LatLng[latLngList.size()]))
+    MFPolylineA polylineA = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
                     .color("#0000ff")
                     .width(8)
                     .zIndex(5.f)
                     .alpha(1.f));
                     
-    MFPolyline polylineB = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new LatLng[latLngList.size()]))
+    MFPolyline polylineB = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
                     .color("#0000ff")
                     .width(8)
                     .zindex(5.f)

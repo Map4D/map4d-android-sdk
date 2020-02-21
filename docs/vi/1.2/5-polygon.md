@@ -5,23 +5,23 @@ Lớp Polygon cho phép người dùng vẽ một Polygon lên map.
 
 ```java
 public class MFPolygonOptions {
-    private List<LatLng> points; // Danh sách các toạ độ cần vẽ
-    private List<List<LatLng>> holes; // Danh sách các tọa độ holes
+    private List<MFLocationCoordinate> points; // Danh sách các toạ độ cần vẽ
+    private List<List<MFLocationCoordinate>> holes; // Danh sách các tọa độ holes
     private String fillColor;  // màu sắc
     private float fillAlpha;  // độ trong suốt
     private boolean visible;  // ẩn/hiển polygon
     private float zIndex;  // thứ tự vẽ polygon
     
     public MFPolygonOptions(); // khởi tạo 
-    public MFPolygonOptions add(LatLng... points); //add danh sách các tọa độ cần vẽ
-    public MFPolygonOptions add(LatLng point); // add 1 point vào danh sách tọa độ
-    public MFPolygonOptions addHole(LatLng... points); // add danh sách tọa độ holes
+    public MFPolygonOptions add(MFLocationCoordinate... points); //add danh sách các tọa độ cần vẽ
+    public MFPolygonOptions add(MFLocationCoordinate point); // add 1 point vào danh sách tọa độ
+    public MFPolygonOptions addHole(MFLocationCoordinate... points); // add danh sách tọa độ holes
     public MFPolygonOptions fillColor(String color); // set màu sắc
     public MFPolygonOptions alpha(float alpha); // set độ trong suốt
     public MFPolygonOptions visible(boolean visible); // cho phép ẩn hiện
     public MFPolygonOptions zIndex(float zIndex); // cài đặt zIndex
-    public List<LatLng> getPoints(); // lấy danh sách tọa độ cần vẽ
-    public List<List<LatLng>> getHoles(); // lấy danh sách tọa đọ holes
+    public List<MFLocationCoordinate> getPoints(); // lấy danh sách tọa độ cần vẽ
+    public List<List<MFLocationCoordinate>> getHoles(); // lấy danh sách tọa đọ holes
     public String getFillColor(); // lấy màu của polygon
     public float getFillAlpha(); // lấy độ trong suốt
     public boolean isVisible(); // kiểm tra ẩn hiện của polygon
@@ -31,16 +31,16 @@ public class MFPolygonOptions {
 public class MFPolygon extends Annotation {
     public MFPolygon(@NonNull MFPolygonOptions polygonOptions,
                      @NonNull AnnotationDelegate annotationDelegate); // khởi tạo
-    public List<LatLng> getPoints();  // lấy danh sách tọa độ cần vẽ
-    public List<List<LatLng>> getHoles(); // lấy danh sách tọa đọ holes
+    public List<MFLocationCoordinate> getPoints();  // lấy danh sách tọa độ cần vẽ
+    public List<List<MFLocationCoordinate>> getHoles(); // lấy danh sách tọa đọ holes
     public String getFillColor(); // lấy màu của polygon
     public float getFillAlpha(); // lấy độ trong suốt
     public boolean isVisible(); // kiểm tra ẩn hiện của polygon
     public void setFillColor(@NonNull String color); set màu sắc
     public void setFillAlpha(float alpha); // set độ trong suốt
     public void setVisible(boolean visible); // cho phép ẩn hiện
-    public void setPoints(List<LatLng> points); //add danh sách các tọa độ cần vẽ
-    public void setHoles(List<List<LatLng>> holes); // add danh sách tọa độ holes
+    public void setPoints(List<MFLocationCoordinate> points); //add danh sách các tọa độ cần vẽ
+    public void setHoles(List<List<MFLocationCoordinate>> holes); // add danh sách tọa độ holes
     public void remove(); // remove polygon khỏi map
 }
 ```
@@ -52,21 +52,21 @@ public class MFPolygon extends Annotation {
 - Tạo đối tượng polygon từ PolygonOptions
 
 ```java
-  private final List<LatLng> pointsList = new ArrayList<>();
+  private final List<MFLocationCoordinate> pointsList = new ArrayList<>();
 
   private void createPointsList() {
-  	pointsList.add(new LatLng(16.066517, 108.210354));
-  	pointsList.add(new LatLng(16.067243, 108.214077));
-  	pointsList.add(new LatLng(16.065419, 108.214576));
-  	pointsList.add(new LatLng(16.062815, 108.214034));
-  	pointsList.add(new LatLng(16.062434, 108.210772));
-  	pointsList.add(new LatLng(16.066517, 108.210354));
+  	pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
+  	pointsList.add(new MFLocationCoordinate(16.067243, 108.214077));
+  	pointsList.add(new MFLocationCoordinate(16.065419, 108.214576));
+  	pointsList.add(new MFLocationCoordinate(16.062815, 108.214034));
+  	pointsList.add(new MFLocationCoordinate(16.062434, 108.210772));
+  	pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
  }
 
   private void addPolygonToMap() {
 	createPointsList();
 	polygon = map4D.addPolygon(new MFPolygonOptions()
-	        .add(pointsList.toArray(new LatLng[pointsList.size()]))
+	        .add(pointsList.toArray(new MFLocationCoordinate[pointsList.size()]))
 	        .fillColor("#0000ff")
 	        .alpha(0.5f));
 	}
@@ -85,32 +85,32 @@ polygon.
 Ví dụ
 
 ```java
-  private final List<LatLng> pointsList = new ArrayList<>();
-  private final List<LatLng> holePath = new ArrayList<>();
+  private final List<MFLocationCoordinate> pointsList = new ArrayList<>();
+  private final List<MFLocationCoordinate> holePath = new ArrayList<>();
 
   private void createPointsList() {
-  	pointsList.add(new LatLng(16.066517, 108.210354));
-  	pointsList.add(new LatLng(16.067243, 108.214077));
-  	pointsList.add(new LatLng(16.065419, 108.214576));
-  	pointsList.add(new LatLng(16.062815, 108.214034));
-  	pointsList.add(new LatLng(16.062434, 108.210772));
-  	pointsList.add(new LatLng(16.066517, 108.210354));
+  	pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
+  	pointsList.add(new MFLocationCoordinate(16.067243, 108.214077));
+  	pointsList.add(new MFLocationCoordinate(16.065419, 108.214576));
+  	pointsList.add(new MFLocationCoordinate(16.062815, 108.214034));
+  	pointsList.add(new MFLocationCoordinate(16.062434, 108.210772));
+  	pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
  }
 
   private void createHole() {
-    holePath.add(new LatLng(16.065681, 108.211716));
-    holePath.add(new LatLng(16.065898, 108.213009));
-    holePath.add(new LatLng(16.065336, 108.213202));
-    holePath.add(new LatLng(16.064965, 108.212183));
-    holePath.add(new LatLng(16.065681, 108.211716));
+    holePath.add(new MFLocationCoordinate(16.065681, 108.211716));
+    holePath.add(new MFLocationCoordinate(16.065898, 108.213009));
+    holePath.add(new MFLocationCoordinate(16.065336, 108.213202));
+    holePath.add(new MFLocationCoordinate(16.064965, 108.212183));
+    holePath.add(new MFLocationCoordinate(16.065681, 108.211716));
   }
 
   private void addPolygonToMap() {
 	createHole();
 	createPointsList();
 	polygon = map4D.addPolygon(new MFPolygonOptions()
-	        .add(pointsList.toArray(new LatLng[pointsList.size()]))
-	        .addHole(holePath.toArray(new LatLng[holePath.size()]))
+	        .add(pointsList.toArray(new MFLocationCoordinate[pointsList.size()]))
+	        .addHole(holePath.toArray(new MFLocationCoordinate[holePath.size()]))
 	        .fillColor("#0000ff")
 	        .alpha(0.5f));
 	}
@@ -122,12 +122,12 @@ Ví dụ
   Xem demo ở ví dụ sau đây:
   
 ```java
-    pointsList.add(new LatLng(16.066517, 108.210354));
-  	pointsList.add(new LatLng(16.067243, 108.214077));
-  	pointsList.add(new LatLng(16.065419, 108.214576));
-  	pointsList.add(new LatLng(16.062815, 108.214034));
-  	pointsList.add(new LatLng(16.062434, 108.210772));
-  	pointsList.add(new LatLng(16.066517, 108.210354));
+    pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
+  	pointsList.add(new MFLocationCoordinate(16.067243, 108.214077));
+  	pointsList.add(new MFLocationCoordinate(16.065419, 108.214576));
+  	pointsList.add(new MFLocationCoordinate(16.062815, 108.214034));
+  	pointsList.add(new MFLocationCoordinate(16.062434, 108.210772));
+  	pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
 ```
 
 ## 3. Sự kiện click polygon
@@ -159,39 +159,39 @@ map4D.setOnPolygonClickListener(new Map4D.OnPolygonClickListener() {
 - zIndex: Polygon nào có zIndex lớn hơn sẽ ưu tiên hiển thị trước, zIndex càng lớn càng sẽ được vẽ sau.
 
 ```java
-  private final List<LatLng> pointsList = new ArrayList<>();
-  private final List<LatLng> holePath = new ArrayList<>();
+  private final List<MFLocationCoordinate> pointsList = new ArrayList<>();
+  private final List<MFLocationCoordinate> holePath = new ArrayList<>();
 
   private void createPointsList() {
-  	pointsList.add(new LatLng(16.066517, 108.210354));
-  	pointsList.add(new LatLng(16.067243, 108.214077));
-  	pointsList.add(new LatLng(16.065419, 108.214576));
-  	pointsList.add(new LatLng(16.062815, 108.214034));
-  	pointsList.add(new LatLng(16.062434, 108.210772));
-  	pointsList.add(new LatLng(16.066517, 108.210354));
+  	pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
+  	pointsList.add(new MFLocationCoordinate(16.067243, 108.214077));
+  	pointsList.add(new MFLocationCoordinate(16.065419, 108.214576));
+  	pointsList.add(new MFLocationCoordinate(16.062815, 108.214034));
+  	pointsList.add(new MFLocationCoordinate(16.062434, 108.210772));
+  	pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
  }
 
   private void createHole() {
-    holePath.add(new LatLng(16.065681, 108.211716));
-    holePath.add(new LatLng(16.065898, 108.213009));
-    holePath.add(new LatLng(16.065336, 108.213202));
-    holePath.add(new LatLng(16.064965, 108.212183));
-    holePath.add(new LatLng(16.065681, 108.211716));
+    holePath.add(new MFLocationCoordinate(16.065681, 108.211716));
+    holePath.add(new MFLocationCoordinate(16.065898, 108.213009));
+    holePath.add(new MFLocationCoordinate(16.065336, 108.213202));
+    holePath.add(new MFLocationCoordinate(16.064965, 108.212183));
+    holePath.add(new MFLocationCoordinate(16.065681, 108.211716));
   }
 
   private void addPolygonToMap() {
 	createHole();
 	createPointsList();
 	MFPolygon polygonA = map4D.addPolygon(new MFPolygonOptions()
-	        .add(pointsList.toArray(new LatLng[pointsList.size()]))
-	        .addHole(holePath.toArray(new LatLng[holePath.size()]))
+	        .add(pointsList.toArray(new MFLocationCoordinate[pointsList.size()]))
+	        .addHole(holePath.toArray(new MFLocationCoordinate[holePath.size()]))
 	        .fillColor("#ff0000")
 	        .zIndex(10.f)
 	        .alpha(1.f));
 	        
 	MFPolygon polygonB = map4D.addPolygon(new MFPolygonOptions()
-	        .add(pointsList.toArray(new LatLng[pointsList.size()]))
-	        .addHole(holePath.toArray(new LatLng[holePath.size()]))
+	        .add(pointsList.toArray(new MFLocationCoordinate[pointsList.size()]))
+	        .addHole(holePath.toArray(new MFLocationCoordinate[holePath.size()]))
 	        .fillColor("#0000ff")
 	        .zIndex(2.f)
 	        .alpha(1.f));
@@ -200,38 +200,38 @@ map4D.setOnPolygonClickListener(new Map4D.OnPolygonClickListener() {
 - PolygonA sẽ được vẽ đè lên vì zIndex của nó lớn hơn zIndex của polygonB.
 
 ```java
-  private final List<LatLng> pointsList = new ArrayList<>();
-  private final List<LatLng> holePath = new ArrayList<>();
+  private final List<MFLocationCoordinate> pointsList = new ArrayList<>();
+  private final List<MFLocationCoordinate> holePath = new ArrayList<>();
 
   private void createPointsList() {
-  	pointsList.add(new LatLng(16.066517, 108.210354));
-  	pointsList.add(new LatLng(16.067243, 108.214077));
-  	pointsList.add(new LatLng(16.065419, 108.214576));
-  	pointsList.add(new LatLng(16.062815, 108.214034));
-  	pointsList.add(new LatLng(16.062434, 108.210772));
-  	pointsList.add(new LatLng(16.066517, 108.210354));
+  	pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
+  	pointsList.add(new MFLocationCoordinate(16.067243, 108.214077));
+  	pointsList.add(new MFLocationCoordinate(16.065419, 108.214576));
+  	pointsList.add(new MFLocationCoordinate(16.062815, 108.214034));
+  	pointsList.add(new MFLocationCoordinate(16.062434, 108.210772));
+  	pointsList.add(new MFLocationCoordinate(16.066517, 108.210354));
  }
 
   private void createHole() {
-    holePath.add(new LatLng(16.065681, 108.211716));
-    holePath.add(new LatLng(16.065898, 108.213009));
-    holePath.add(new LatLng(16.065336, 108.213202));
-    holePath.add(new LatLng(16.064965, 108.212183));
-    holePath.add(new LatLng(16.065681, 108.211716));
+    holePath.add(new MFLocationCoordinate(16.065681, 108.211716));
+    holePath.add(new MFLocationCoordinate(16.065898, 108.213009));
+    holePath.add(new MFLocationCoordinate(16.065336, 108.213202));
+    holePath.add(new MFLocationCoordinate(16.064965, 108.212183));
+    holePath.add(new MFLocationCoordinate(16.065681, 108.211716));
   }
 
   private void addPolygonToMap() {
 	createHole();
 	createPointsList();
 	MFPolygon polygonA = map4D.addPolygon(new MFPolygonOptions()
-	        .add(pointsList.toArray(new LatLng[pointsList.size()]))
-	        .addHole(holePath.toArray(new LatLng[holePath.size()]))
+	        .add(pointsList.toArray(new MFLocationCoordinate[pointsList.size()]))
+	        .addHole(holePath.toArray(new MFLocationCoordinate[holePath.size()]))
 	        .fillColor("#ff0000")
 	        .alpha(1.f));
 	        
 	MFPolygon polygonB = map4D.addPolygon(new MFPolygonOptions()
-	        .add(pointsList.toArray(new LatLng[pointsList.size()]))
-	        .addHole(holePath.toArray(new LatLng[holePath.size()]))
+	        .add(pointsList.toArray(new MFLocationCoordinate[pointsList.size()]))
+	        .addHole(holePath.toArray(new MFLocationCoordinate[holePath.size()]))
 	        .fillColor("#0000ff")
 	        .alpha(1.f));
   }

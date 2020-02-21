@@ -5,7 +5,7 @@ Lớp Circle cho phép người dùng vẽ một Circle lên map.
 
 ```java
 public class MFCircleOptions {
-	private LatLng center; // Tâm của Circle 
+	private MFLocationCoordinate center; // Tâm của Circle 
 	private double radius; // Bán kính Circle (Đơn vị: m)
 	private String fillColor; // Màu sắc Circle
 	private float fillAlpha; // Độ trong suốt Circle
@@ -13,13 +13,13 @@ public class MFCircleOptions {
 	private float zIndex; // thứ tự vẽ circle
 	
 	public MFCircleOptions();
-	public MFCircleOptions center(LatLng center); // set vị trí tâm
+	public MFCircleOptions center(MFLocationCoordinate center); // set vị trí tâm
 	public MFCircleOptions radius(double radius); // set bán kính
 	public MFCircleOptions fillColor(String color); // set màu sắc
 	public MFCircleOptions fillAlpha(float alpha); // set độ trong suốt
 	public MFCircleOptions visible(boolean visible); // set ẩn hoặc hiện circle
 	public MFCircleOptions zIndex(float zIndex); // cài đặt thứ tự vẽ circle trên map
-	public LatLng getCenter();  // lấy vị trí tâm
+	public MFLocationCoordinate getCenter();  // lấy vị trí tâm
 	public double getRadius(); // lấy bán kính
 	public String getFillColor(); // lấy màu sắc
 	public float getFillAlpha(); // lấy độ trong suốt;
@@ -30,10 +30,10 @@ public class MFCircleOptions {
 public class MFCircle extends Annotation {
     public MFCircle(@NonNull MFCircleOptions circleOptions,
                     @NonNull AnnotationDelegate annotationDelegate);
-    public LatLng getCenter(); // lấy điểm tâm
+    public MFLocationCoordinate getCenter(); // lấy điểm tâm
     public double getRadius(); // lấy bán kính
     public void setRadius(double radius); // set bán kính
-    public void setCenter(LatLng center); // set vị trí tâm
+    public void setCenter(MFLocationCoordinate center); // set vị trí tâm
     public String getFillColor(); // lấy color
     public float getFillAlpha(); // lấy độ trong suốt
     public boolean isVisible(); // kiểm tra circle đang ẩn hoặc hiện
@@ -52,7 +52,7 @@ public class MFCircle extends Annotation {
 
 ```java
  MFCircle circle = map4D.addCircle(new MFCircleOptions()
-                        .center(new LatLng(16.066517, 108.210354))
+                        .center(new MFLocationCoordinate(16.066517, 108.210354))
                         .radius(500)
                         .fillColor("#00ff00")
                         .fillAlpha(0.3f));
@@ -70,7 +70,7 @@ Như ví dụ trên thì chúng ta tạo một Circle với các tùy chỉnh nh
 
 ```java
  MFCircle circle = map4D.addCircle(new MFCircleOptions()
-                        .center(new LatLng(16.066517, 108.210354))
+                        .center(new MFLocationCoordinate(16.066517, 108.210354))
                         .radius(300)
                         .fillColor("#ffaabb")
                         .fillAlpha(0.5f)
@@ -113,12 +113,12 @@ map4D.setOnCircleClickListener(new Map4D.OnCircleClickListener() {
 
 ```java
   MFCircle circleA = map4D.addCircle(new MFCircleOptions()
-                          .center(new LatLng(16.066517, 108.210354))
+                          .center(new MFLocationCoordinate(16.066517, 108.210354))
                           .radius(500)
                           .fillColor("#00ff00")
                           .zIndex(10.f));
   MFCircle circleB = map4D.addCircle(new MFCircleOptions()
-                          .center(new LatLng(16.066517, 108.210354))
+                          .center(new MFLocationCoordinate(16.066517, 108.210354))
                           .radius(500)
                           .fillColor("#00ff00")
                           .zIndex(2.f));
@@ -127,11 +127,11 @@ map4D.setOnCircleClickListener(new Map4D.OnCircleClickListener() {
 
 ```java
   MFCircle circleA = map4D.addCircle(new MFCircleOptions()
-                            .center(new LatLng(16.066517, 108.210354))
+                            .center(new MFLocationCoordinate(16.066517, 108.210354))
                             .radius(500)
                             .fillColor("#00ff00"));
   MFCircle circleB = map4D.addCircle(new MFCircleOptions()
-                            .center(new LatLng(16.066517, 108.210354))
+                            .center(new MFLocationCoordinate(16.066517, 108.210354))
                             .radius(500)
                             .fillColor("#00ff00"));
 ```

@@ -192,7 +192,7 @@ Hướng dẫn sử dụng các sự kiện của Map4D SDK.
   ```java
   map4D.setOnMapClickListener(new Map4D.OnMapClickListener() {
       @Override
-      public void onMapClick(LatLng latLng) {
+      public void onMapClick(MFLocationCoordinate latLng) {
 
       }
   });
@@ -210,10 +210,10 @@ MFCircle circle = map4D.addCircle(new MFCircleOptions()
                 .radius(300)
                 .fillAlpha(0.5f)
                 .zIndex(5.f)
-                .center(new LatLng(10.773143, 106.713472)));
+                .center(new MFLocationCoordinate(10.773143, 106.713472)));
                 
 MFMarker marker = map4D.addMarker(new MFMarkerOptions()
-                .position(new LatLng(10.76777699097427, 106.70235982464658))
+                .position(new MFLocationCoordinate(10.76777699097427, 106.70235982464658))
                 .icon(MFBitmapDescriptorFactory.fromResource(R.drawable.ic_default_marker))
                 .zIndex(15.f)
                 .title("Title")

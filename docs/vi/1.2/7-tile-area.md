@@ -6,7 +6,7 @@ Lớp TileArea cho phép người dùng thực hiện thay thế các tile tại
 ```java
 public class MFTileAreaOptions {
 
-    private LatLngBounds bounds; // LatLng bounds để cho biết khu vực cần thay thế tile area
+    private MFCoordinateBounds bounds; // LatLng bounds để cho biết khu vực cần thay thế tile area
 
     private String mapUrl; // Đường dẫn tile mới
 
@@ -16,7 +16,7 @@ public class MFTileAreaOptions {
 
     public MFTileAreaOptions(); // khởi tạo
 
-    public MFTileAreaOptions bounds(@NonNull LatLngBounds bounds); // set bounds
+    public MFTileAreaOptions bounds(@NonNull MFCoordinateBounds bounds); // set bounds
 
     public MFTileAreaOptions mapUrl(@NonNull String mapUrl); // set url
 
@@ -24,7 +24,7 @@ public class MFTileAreaOptions {
 
     public MFTileAreaOptions maxZoom(double maxZoom); // set maxZoom để hiện thị tile mới
 
-    public LatLngBounds getBounds(); // lấy bounds tile area
+    public MFCoordinateBounds getBounds(); // lấy bounds tile area
 
     public String getMapUrl(); // lấy map url
 
@@ -37,7 +37,7 @@ public class MFTileArea {
 
     private long id; // id : được tạo ra từ sdk
 
-    private LatLngBounds bounds; // LatLng bounds để cho biết khu vực cần thay thế tile area
+    private MFCoordinateBounds bounds; // LatLng bounds để cho biết khu vực cần thay thế tile area
 
     private String mapUrl;  // Đường dẫn tile mới
 
@@ -50,7 +50,7 @@ public class MFTileArea {
     public MFTileArea(@NonNull MFTileAreaOptions tileAreaOptions,
                       @NonNull TileAreaDelegate tileAreaDelegate); // khởi tạo
 
-    public LatLngBounds getBounds(); // lấy bounds
+    public MFCoordinateBounds getBounds(); // lấy bounds
 
     public String getMapUrl(); // lấy map url
 
@@ -60,7 +60,7 @@ public class MFTileArea {
 
     public void setMapUrl(@NonNull final String mapUrl); // set map url
 
-    public void setBounds(@NonNull final LatLngBounds bounds); // set bounds
+    public void setBounds(@NonNull final MFCoordinateBounds bounds); // set bounds
 
     public void remove(); // remove tile area khỏi map
 
@@ -75,14 +75,14 @@ public class MFTileArea {
 
 ```java
   private MFTileArea tileArea;
-  private LatLngBounds latLngBounds = null;
+  private MFCoordinateBounds latLngBounds = null;
 
   private void createLatLngBounds() {
-    List<LatLng> pointsList = new ArrayList<>();
-    pointsList.add(new LatLng(16.058227, 108.200483));
-    pointsList.add(new LatLng(16.074311, 108.212628));
-    pointsList.add(new LatLng(16.073115, 108.192587));
-    latLngBounds = new LatLngBounds.Builder().includes(pointsList).build();
+    List<MFLocationCoordinate> pointsList = new ArrayList<>();
+    pointsList.add(new MFLocationCoordinate(16.058227, 108.200483));
+    pointsList.add(new MFLocationCoordinate(16.074311, 108.212628));
+    pointsList.add(new MFLocationCoordinate(16.073115, 108.192587));
+    latLngBounds = new MFCoordinateBounds.Builder().includes(pointsList).build();
   }
 
   private void addTileAreaToMap() {
