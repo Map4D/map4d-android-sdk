@@ -98,7 +98,7 @@ Ví dụ trên thì chúng ta tạo một polyline từ danh sách các tọa đ
                 .style(MFPolylineStyle.dotted));
 ```
 
-![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-android-sdk/master/docs/resource/4-polyline-dotted.jpg)
+![CocoaPods](https://raw.githubusercontent.com/map4d/map4d-android-sdk/master/docs/resource/4-polyline-dotted.jpg)
 ## 3. Sự kiện click polyline
 
 Phát sinh khi người dùng click vào polyline

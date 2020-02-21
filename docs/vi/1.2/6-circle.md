@@ -66,7 +66,7 @@ Như ví dụ trên thì chúng ta tạo một Circle với các tùy chỉnh nh
 
 - Tạo circle với strokeColor and strokeWidth.
 
-![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-android-sdk/master/docs/resource/6-circle-stroke.jpg)
+![CocoaPods](https://raw.githubusercontent.com/map4d/map4d-android-sdk/master/docs/resource/6-circle-stroke.jpg)
 
 ```java
  MFCircle circle = map4D.addCircle(new MFCircleOptions()
