@@ -51,7 +51,7 @@ Use Maven
 2. Create layout
 
 ```xml
-<vn.map4d.map4dsdk.maps.MFMapView
+<vn.map4d.map.core.MFMapView
         android:id="@+id/mapView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,8 +60,8 @@ Use Maven
 3. Working with map view (kotlin)
 
 ```kotlin
-import vn.map4d.map4dsdk.maps.Map4D
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback
+import vn.map4d.map.core.Map4D
+import vn.map4d.map.core.OnMapReadyCallback
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 

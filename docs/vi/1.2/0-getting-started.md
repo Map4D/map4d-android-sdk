@@ -50,7 +50,7 @@ dependencies {
 
     <fragment
         android:id="@+id/map3D"
-        class="vn.map4d.map4dsdk.maps.MFSupportMapFragment"
+        class="vn.map4d.map.core.MFSupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -89,7 +89,7 @@ public class Simple3DMapActivity extends AppCompatActivity implements OnMapReady
       android:layout_height="match_parent"
       tools:context=".Simple3DMapActivity">
   
-      <vn.map4d.map4dsdk.maps.MFMapView
+      <vn.map4d.map.core.MFMapView
                       android:id="@+id/map3D"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent" />

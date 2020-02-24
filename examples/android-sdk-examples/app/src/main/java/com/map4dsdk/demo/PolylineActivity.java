@@ -9,20 +9,20 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.map4d.map4dsdk.annotations.MFMarker;
-import vn.map4d.map4dsdk.annotations.MFMarkerOptions;
-import vn.map4d.map4dsdk.annotations.MFPolyline;
-import vn.map4d.map4dsdk.annotations.MFPolylineOptions;
-import vn.map4d.map4dsdk.camera.MFCameraUpdateFactory;
-import vn.map4d.map4dsdk.maps.LatLng;
-import vn.map4d.map4dsdk.maps.MFSupportMapFragment;
-import vn.map4d.map4dsdk.maps.Map4D;
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback;
+import vn.map4d.map.annotations.MFMarker;
+import vn.map4d.map.annotations.MFMarkerOptions;
+import vn.map4d.map.annotations.MFPolyline;
+import vn.map4d.map.annotations.MFPolylineOptions;
+import vn.map4d.map.camera.MFCameraUpdateFactory;
+import vn.map4d.map.core.MFSupportMapFragment;
+import vn.map4d.map.core.Map4D;
+import vn.map4d.map.core.OnMapReadyCallback;
+import vn.map4d.types.MFLocationCoordinate;
 
 public class PolylineActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
     private Map4D map4D;
     private boolean polylineAdded = true;
-    private final List<LatLng> latLngList = new ArrayList<>();
+    private final List<MFLocationCoordinate> latLngList = new ArrayList<>();
     private final List<MFMarker> markersList = new ArrayList<>();
     private boolean pathUpdated = false;
     private MFPolyline polyline;
@@ -58,17 +58,17 @@ public class PolylineActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     private void createPath() {
-        latLngList.add(new LatLng(16.067218, 108.213916));
-        latLngList.add(new LatLng(16.066496, 108.210311));
-        latLngList.add(new LatLng(16.064877, 108.210397));
-        latLngList.add(new LatLng(16.059980, 108.211137));
-        latLngList.add(new LatLng(16.059516, 108.208358));
+        latLngList.add(new MFLocationCoordinate(16.067218, 108.213916));
+        latLngList.add(new MFLocationCoordinate(16.066496, 108.210311));
+        latLngList.add(new MFLocationCoordinate(16.064877, 108.210397));
+        latLngList.add(new MFLocationCoordinate(16.059980, 108.211137));
+        latLngList.add(new MFLocationCoordinate(16.059516, 108.208358));
 
     }
 
     private void addMarkersToMap() {
         int i = 1;
-        for (LatLng latLng : latLngList) {
+        for (MFLocationCoordinate latLng : latLngList) {
             MFMarker marker = map4D.addMarker(new MFMarkerOptions()
                     .position(latLng)
                     .title("Marker " + i++)
@@ -85,10 +85,9 @@ public class PolylineActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     private void addPolylineToMap() {
-        polyline = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new LatLng[latLngList.size()]))
+        polyline = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
                 .color("#0000ff")
                 .width(8)
-                .closed(false)
                 .alpha(0.3f));
         addMarkersToMap();
     }
@@ -103,12 +102,12 @@ public class PolylineActivity extends AppCompatActivity implements OnMapReadyCal
      * update Path of Polyline
      */
     private void addLatLngToPath () {
-        latLngList.add(new LatLng(16.058691, 108.206046));
-        latLngList.add(new LatLng(16.057866, 108.203605));
+        latLngList.add(new MFLocationCoordinate(16.058691, 108.206046));
+        latLngList.add(new MFLocationCoordinate(16.057866, 108.203605));
         polyline.setPath(latLngList);
         int size = latLngList.size();
-        LatLng latLng = latLngList.get(size - 2);
-        LatLng latLng1 = latLngList.get(size - 1);
+        MFLocationCoordinate latLng = latLngList.get(size - 2);
+        MFLocationCoordinate latLng1 = latLngList.get(size - 1);
         markersList.add(map4D.addMarker(new MFMarkerOptions()
                 .position(latLng)
                 .title("Marker " + size ++)
@@ -134,7 +133,7 @@ public class PolylineActivity extends AppCompatActivity implements OnMapReadyCal
     public void onMapReady(Map4D map4D) {
         this.map4D = map4D;
         createPath();
-        map4D.moveCamera(MFCameraUpdateFactory.newLatLngZoom(new LatLng(16.064877, 108.210397), 16));
+        map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(new MFLocationCoordinate(16.064877, 108.210397), 16));
         addPolylineToMap();
         map4D.setOnPolylineClickListener(new Map4D.OnPolylineClickListener() {
             @Override

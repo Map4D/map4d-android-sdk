@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/polylineDemo"
-        class="vn.map4d.map4dsdk.maps.MFSupportMapFragment"
+        class="vn.map4d.map.core.MFSupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

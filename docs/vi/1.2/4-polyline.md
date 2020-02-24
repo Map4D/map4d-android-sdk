@@ -9,7 +9,6 @@ public final class MFPolylineOptions {
     private float alpha; // Độ trong suốt
     private float width; // Chiều rộng polyline
     private boolean visible; // Ẩn hoặc hiện polyline
-    private boolean closed; // Cho phép nối điểm đầu và điểm cuối lại với nhau.
     private MFPolylineStyle style; // hỗ trợ 2 loại là nét đứt hoặc liền. dotted và solid. default là solid
     private float zIndex;  // thứ tự vẽ của polyline. default = -1.f
     public MFPolylineOptions();
@@ -20,7 +19,6 @@ public final class MFPolylineOptions {
     public MFPolylineOptions alpha(float alpha); // set độ trong suốt
     public MFPolylineOptions width(float width); //set width của polyline
     public MFPolylineOptions visible(boolean visible); // ẩn/hiện polyline
-    public MFPolylineOptions closed(boolean closed); // cho điểm đầu nối điểm cuối 
     public MFPolylineOptions style(MFPolylineStyle style); // kiểu đường nét đứt hoặc nét liền
     public MFPolylineOptions zIndex(float zIndex); // thứ tự vẽ
     public List<MFLocationCoordinate> getPoints(); // lấy danh sách điểm tọa độ cần vẽ của polyline
@@ -28,7 +26,6 @@ public final class MFPolylineOptions {
     public float getAlpha(); // lấy độ trong suốt của polyline
     public float getWidth(); // lấy độ rộng của polyline;
     public boolean isVisible(); // kiểm tra polyline đang ẩn or hiện
-    public boolean isClosed(); // kiểm tra polyline có cho nối điểm đầu với điểm cuối
     public MFPolylineStyle getStyle(); // kiểm tra kiểu nét vẽ của polyline
     public float getZIndex(); // kiểm tra giá trị của zIndex
 }
@@ -41,7 +38,6 @@ public final class MFPolyline extends Annotation {
     public float getAlpha(); // lấy độ trong suốt
     public float getWidth(); // lấy độ rộng
     public boolean isVisible(); // kiểm tra polyline đang ẩn or hiện
-    public boolean isClosed(); // kiểm tra polyline có cho điểm đầu nối điểm cuối ko
     public void setWidth(float width); // set độ rộng
     public void setColor(@NonNull String color); // set màu sắc
     public void setAlpha(float alpha); // set độ trong suốt
@@ -65,17 +61,16 @@ public final class MFPolyline extends Annotation {
   latLngList.add(new MFLocationCoordinate(16.064877, 108.210397));
   latLngList.add(new MFLocationCoordinate(16.059980, 108.211137));
   latLngList.add(new MFLocationCoordinate(16.059516, 108.208358));
+  latLngList.add(new MFLocationCoordinate(16.067218, 108.213916));
 
   polyline = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
                 .color("#0000ff")
                 .width(8)
-                .closed(false)
                 .alpha(0.3f));
 ```
 Ví dụ trên thì chúng ta tạo một polyline từ danh sách các tọa độ `latLngList` với các tùy chỉnh:
 * Màu sắc: 0000ff
 * Độ rộng của polyline: 8 point
-* Polyline đóng: false
 * Giá trị alpha của polyline: 0.3
 
 
@@ -93,7 +88,6 @@ Ví dụ trên thì chúng ta tạo một polyline từ danh sách các tọa đ
   polyline = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
                 .color("#0000ff")
                 .width(8)
-                .closed(false)
                 .alpha(0.3f)
                 .style(MFPolylineStyle.dotted));
 ```

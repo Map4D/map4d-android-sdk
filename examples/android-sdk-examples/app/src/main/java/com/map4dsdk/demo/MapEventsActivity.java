@@ -7,13 +7,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import vn.map4d.map4dsdk.camera.MFCameraPosition;
-import vn.map4d.map4dsdk.camera.MFCameraUpdateFactory;
-import vn.map4d.map4dsdk.maps.LatLng;
-import vn.map4d.map4dsdk.maps.MFObject;
-import vn.map4d.map4dsdk.maps.MFSupportMapFragment;
-import vn.map4d.map4dsdk.maps.Map4D;
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback;
+import vn.map4d.map.camera.MFCameraPosition;
+import vn.map4d.map.camera.MFCameraUpdateFactory;
+import vn.map4d.types.MFLocationCoordinate;
+import vn.map4d.map.core.MFObject;
+import vn.map4d.map.core.MFSupportMapFragment;
+import vn.map4d.map.core.Map4D;
+import vn.map4d.map.core.OnMapReadyCallback;
 
 public class MapEventsActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
     private Map4D map4D;
@@ -63,11 +63,11 @@ public class MapEventsActivity extends AppCompatActivity implements OnMapReadyCa
     @Override
     public void onMapReady(Map4D map4D) {
         this.map4D = map4D;
-        map4D.moveCamera(MFCameraUpdateFactory.newLatLngZoom(new LatLng(16.066517, 108.210354), 14));
+        map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(new MFLocationCoordinate(16.066517, 108.210354), 14));
         updateCameraInfo();
         map4D.setOnMapClickListener(new Map4D.OnMapClickListener() {
             @Override
-            public void onMapClick(LatLng latLng) {
+            public void onMapClick(MFLocationCoordinate latLng) {
                 txtMapState.setText("map click: " + latLng.getLatitude() + ", " + latLng.getLongitude());
             }
         });

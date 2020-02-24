@@ -11,11 +11,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import vn.map4d.map4dsdk.maps.LatLng;
-import vn.map4d.map4dsdk.maps.MFSupportMapFragment;
-import vn.map4d.map4dsdk.maps.MFSwitchMode;
-import vn.map4d.map4dsdk.maps.Map4D;
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback;
+import vn.map4d.map.core.MFSupportMapFragment;
+import vn.map4d.map.core.MFSwitchMode;
+import vn.map4d.map.core.Map4D;
+import vn.map4d.map.core.OnMapReadyCallback;
+import vn.map4d.types.MFLocationCoordinate;
 
 public class SettingsActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
     private Map4D map4D;
@@ -63,7 +63,7 @@ public class SettingsActivity extends AppCompatActivity implements OnMapReadyCal
         map4D.setMaxNativeZoom(17.f);
         map4D.setOnMapClickListener(new Map4D.OnMapClickListener() {
             @Override
-            public void onMapClick(LatLng latLng) {
+            public void onMapClick(MFLocationCoordinate latLng) {
                 ((TextView)findViewById(R.id.lat)).setText("Lat:    " + latLng.getLatitude());
                 ((TextView)findViewById(R.id.lng)).setText("Lng:   " + latLng.getLongitude());
             }

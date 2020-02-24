@@ -3,12 +3,12 @@ package com.map4dsdk.demo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import vn.map4d.map4dsdk.camera.MFCameraUpdateFactory;
-import vn.map4d.map4dsdk.maps.LatLng;
-import vn.map4d.map4dsdk.maps.MFSupportMapFragment;
-import vn.map4d.map4dsdk.maps.MFSwitchMode;
-import vn.map4d.map4dsdk.maps.Map4D;
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback;
+import vn.map4d.map.camera.MFCameraUpdateFactory;
+import vn.map4d.types.MFLocationCoordinate;
+import vn.map4d.map.core.MFSupportMapFragment;
+import vn.map4d.map.core.MFSwitchMode;
+import vn.map4d.map.core.Map4D;
+import vn.map4d.map.core.OnMapReadyCallback;
 
 public class Simple2DMapActivity extends AppCompatActivity implements OnMapReadyCallback{
 
@@ -41,7 +41,7 @@ public class Simple2DMapActivity extends AppCompatActivity implements OnMapReady
     @Override
     public void onMapReady(Map4D map4D) {
         map4D.setSwitchMode(MFSwitchMode.Manual);
-        map4D.moveCamera(MFCameraUpdateFactory.newLatLngZoom(new LatLng(10.771666, 106.704405), 16));
-        //map4D.addMarker(new MFMarkerOptions().title("Quan 1").snippet("Trung Tam Hanh Chinh").position(new LatLng(10.771666, 106.704405)));
+        map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(new MFLocationCoordinate(10.771666, 106.704405), 16));
+        //map4D.addMarker(new MFMarkerOptions().title("Quan 1").snippet("Trung Tam Hanh Chinh").position(new MFLocationCoordinate(10.771666, 106.704405)));
     }
 }

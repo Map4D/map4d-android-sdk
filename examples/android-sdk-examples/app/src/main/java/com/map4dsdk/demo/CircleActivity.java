@@ -6,13 +6,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import vn.map4d.map4dsdk.annotations.MFCircle;
-import vn.map4d.map4dsdk.annotations.MFCircleOptions;
-import vn.map4d.map4dsdk.camera.MFCameraUpdateFactory;
-import vn.map4d.map4dsdk.maps.LatLng;
-import vn.map4d.map4dsdk.maps.MFSupportMapFragment;
-import vn.map4d.map4dsdk.maps.Map4D;
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback;
+import vn.map4d.map.annotations.MFCircle;
+import vn.map4d.map.annotations.MFCircleOptions;
+import vn.map4d.map.camera.MFCameraUpdateFactory;
+import vn.map4d.types.MFLocationCoordinate;
+import vn.map4d.map.core.MFSupportMapFragment;
+import vn.map4d.map.core.Map4D;
+import vn.map4d.map.core.OnMapReadyCallback;
 
 public class CircleActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
     private Map4D map4D;
@@ -52,7 +52,7 @@ public class CircleActivity extends AppCompatActivity implements OnMapReadyCallb
     private void addCircleToMap() {
         if (map4D != null) {
             circle = map4D.addCircle(new MFCircleOptions()
-                        .center(new LatLng(16.066517, 108.210354))
+                        .center(new MFLocationCoordinate(16.066517, 108.210354))
                         .radius(500)
                         .fillColor("#00ff00")
                         .fillAlpha(0.3f));
@@ -76,7 +76,7 @@ public class CircleActivity extends AppCompatActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(Map4D map4D) {
         this.map4D = map4D;
-        map4D.moveCamera(MFCameraUpdateFactory.newLatLngZoom(new LatLng(16.066517, 108.210354), 14));
+        map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(new MFLocationCoordinate(16.066517, 108.210354), 14));
         addCircleToMap();
         map4D.setOnCircleClickListener(new Map4D.OnCircleClickListener() {
             @Override
