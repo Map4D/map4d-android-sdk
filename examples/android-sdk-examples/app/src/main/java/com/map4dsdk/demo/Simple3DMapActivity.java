@@ -3,9 +3,9 @@ package com.map4dsdk.demo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import vn.map4d.map4dsdk.maps.MFSupportMapFragment;
-import vn.map4d.map4dsdk.maps.Map4D;
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback;
+import vn.map4d.map.core.MFSupportMapFragment;
+import vn.map4d.map.core.Map4D;
+import vn.map4d.map.core.OnMapReadyCallback;
 
 public class Simple3DMapActivity extends AppCompatActivity implements OnMapReadyCallback{
 

@@ -4,16 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import vn.map4d.map4dsdk.camera.MFCameraUpdateFactory;
-import vn.map4d.map4dsdk.maps.LatLng;
-import vn.map4d.map4dsdk.maps.MFSupportMapFragment;
-import vn.map4d.map4dsdk.maps.Map4D;
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback;
+import vn.map4d.map.camera.MFCameraUpdateFactory;
+import vn.map4d.types.MFLocationCoordinate;
+import vn.map4d.map.core.MFSupportMapFragment;
+import vn.map4d.map.core.Map4D;
+import vn.map4d.map.core.OnMapReadyCallback;
 
 public class CameraAnimateActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
     private Map4D map4D;
-    private final LatLng saj = new LatLng(10.770680, 106.703446);
-    private final LatLng dad = new LatLng(16.066517, 108.210354);
+    private final MFLocationCoordinate saj = new MFLocationCoordinate(10.770680, 106.703446);
+    private final MFLocationCoordinate dad = new MFLocationCoordinate(16.066517, 108.210354);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,32 +48,32 @@ public class CameraAnimateActivity extends AppCompatActivity implements OnMapRea
 
     private void animateToSaiGon() {
         if(map4D != null) {
-            map4D.animateCamera(MFCameraUpdateFactory.newLatLngZoom(saj, 14));
+            map4D.animateCamera(MFCameraUpdateFactory.newCoordinateZoom(saj, 14));
         }
     }
 
     private void animateToDaNang() {
         if(map4D != null) {
-            map4D.animateCamera(MFCameraUpdateFactory.newLatLngZoom(dad, 14));
+            map4D.animateCamera(MFCameraUpdateFactory.newCoordinateZoom(dad, 14));
         }
     }
 
     private void moveToSaiGon() {
         if(map4D != null) {
-            map4D.moveCamera(MFCameraUpdateFactory.newLatLngZoom(saj, 14));
+            map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(saj, 14));
         }
     }
 
     private void moveToDaNang() {
         if(map4D != null) {
-            map4D.moveCamera(MFCameraUpdateFactory.newLatLngZoom(dad, 14));
+            map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(dad, 14));
         }
     }
 
     @Override
     public void onMapReady(Map4D map4D) {
         this.map4D = map4D;
-        map4D.moveCamera(MFCameraUpdateFactory.newLatLngZoom(new LatLng(16.066517, 108.210354), 14));
+        map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(new MFLocationCoordinate(16.066517, 108.210354), 14));
     }
 
     @Override

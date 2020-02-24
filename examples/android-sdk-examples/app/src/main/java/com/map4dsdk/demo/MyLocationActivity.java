@@ -12,9 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import vn.map4d.map4dsdk.maps.MFSupportMapFragment;
-import vn.map4d.map4dsdk.maps.Map4D;
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback;
+import vn.map4d.map.core.MFSupportMapFragment;
+import vn.map4d.map.core.Map4D;
+import vn.map4d.map.core.OnMapReadyCallback;
 
 public class MyLocationActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
 

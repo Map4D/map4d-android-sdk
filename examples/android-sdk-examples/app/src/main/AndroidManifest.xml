@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
-            android:name="vn.map4d.map4dsdk.ACCESS_KEY"
+            android:name="vn.map4d.map.ACCESS_KEY"
             android:value="98fd21346d83bee24dc734231f7609c9" />
 
         <activity android:name=".MainActivity">

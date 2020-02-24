@@ -15,15 +15,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.map4d.map4dsdk.annotations.MFMarker;
-import vn.map4d.map4dsdk.annotations.MFMarkerOptions;
-import vn.map4d.map4dsdk.camera.MFCameraPosition;
-import vn.map4d.map4dsdk.camera.MFCameraUpdateFactory;
-import vn.map4d.map4dsdk.maps.LatLng;
-import vn.map4d.map4dsdk.maps.LatLngBounds;
-import vn.map4d.map4dsdk.maps.MFSupportMapFragment;
-import vn.map4d.map4dsdk.maps.Map4D;
-import vn.map4d.map4dsdk.maps.OnMapReadyCallback;
+import vn.map4d.map.annotations.MFMarker;
+import vn.map4d.map.annotations.MFMarkerOptions;
+import vn.map4d.map.camera.MFCameraPosition;
+import vn.map4d.map.camera.MFCameraUpdateFactory;
+import vn.map4d.map.core.MFCoordinateBounds;
+import vn.map4d.types.MFLocationCoordinate;
+import vn.map4d.map.core.MFSupportMapFragment;
+import vn.map4d.map.core.Map4D;
+import vn.map4d.map.core.OnMapReadyCallback;
 
 public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
 
@@ -133,7 +133,7 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
         int numMarkersInRainbow = 12;
         for (int i = 0; i < numMarkersInRainbow; i++) {
             MFMarker marker = map4D.addMarker(new MFMarkerOptions()
-                    .position(new LatLng(
+                    .position(new MFLocationCoordinate(
                             10 + 0.8 * Math.sin(i * Math.PI / (numMarkersInRainbow - 1)),
                             106 - 0.8 * Math.cos(i * Math.PI / (numMarkersInRainbow - 1))))
                     .title("Marker  " + i)
@@ -144,7 +144,7 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
         }
         View view = createMarkerView();
         MFMarker markerView = map4D.addMarker(new MFMarkerOptions()
-                .position(new LatLng(13.0006, 106.784))
+                .position(new MFLocationCoordinate(13.0006, 106.784))
                 .title("Marker  13")
                 .snippet(13.0006f + ", " + 106.784f)
                 .iconView(view));
@@ -166,7 +166,7 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(Map4D map4D) {
         this.map4D = map4D;
-        map4D.moveCamera(MFCameraUpdateFactory.newLatLngZoom(new LatLng(12.8006f, 106.784f), 6));
+        map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(new MFLocationCoordinate(12.8006f, 106.784f), 6));
         addMarkersToMap();
         map4D.setInfoWindowAdapter(new CustomInfoWindowAdapter());
         map4D.setOnMarkerClickListener(new Map4D.OnMarkerClickListener() {
@@ -199,11 +199,11 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
                 break;
             }
             case R.id.btnFitBounds: {
-                LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                MFCoordinateBounds.Builder builder = new MFCoordinateBounds.Builder();
                 for (MFMarker marker : markersList) {
                     builder.include(marker.getPosition());
                 }
-                MFCameraPosition cameraPosition = map4D.getCameraPositionForLatLngBounds(builder.build(), 10);
+                MFCameraPosition cameraPosition = map4D.getCameraPositionForBounds(builder.build(), 10);
                 map4D.moveCamera(MFCameraUpdateFactory.newCameraPosition(cameraPosition));
                 break;
             }
