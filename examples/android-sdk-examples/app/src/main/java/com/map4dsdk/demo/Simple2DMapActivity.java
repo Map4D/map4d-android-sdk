@@ -1,6 +1,6 @@
 package com.map4dsdk.demo;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import vn.map4d.map.camera.MFCameraUpdateFactory;

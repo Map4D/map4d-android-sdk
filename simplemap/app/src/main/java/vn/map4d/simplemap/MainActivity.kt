@@ -1,6 +1,6 @@
 package vn.map4d.simplemap
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import vn.map4d.map.core.Map4D
