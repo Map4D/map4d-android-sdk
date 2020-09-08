@@ -1,16 +1,16 @@
 package com.map4dsdk.demo;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import vn.map4d.map.annotations.MFBuilding;
 import vn.map4d.map.camera.MFCameraPosition;
 import vn.map4d.map.camera.MFCameraUpdateFactory;
 import vn.map4d.types.MFLocationCoordinate;
-import vn.map4d.map.core.MFObject;
 import vn.map4d.map.core.MFSupportMapFragment;
 import vn.map4d.map.core.Map4D;
 import vn.map4d.map.core.OnMapReadyCallback;
@@ -95,10 +95,10 @@ public class MapEventsActivity extends AppCompatActivity implements OnMapReadyCa
             }
         });
 
-        map4D.setOnObjectClickListener(new Map4D.OnObjectClickListener() {
+        map4D.setOnBuildingClickListener(new Map4D.OnBuildingClickListener() {
             @Override
-            public void onObjectClick(MFObject object) {
-                txtMapState.setText("Object:   " + object.getName());
+            public void onBuildingClick(MFBuilding mfBuilding) {
+                txtMapState.setText("Building:   " + mfBuilding.getName());
             }
         });
 
