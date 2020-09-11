@@ -1,6 +1,8 @@
 package com.map4dsdk.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -86,9 +88,8 @@ public class PolylineActivity extends AppCompatActivity implements OnMapReadyCal
 
     private void addPolylineToMap() {
         polyline = map4D.addPolyline(new MFPolylineOptions().add(latLngList.toArray(new MFLocationCoordinate[latLngList.size()]))
-                .color("#0000ff")
-                .width(8)
-                .alpha(0.3f));
+                .color(ContextCompat.getColor(this, R.color.blueWithAlpha))
+                .width(8));
         addMarkersToMap();
     }
 

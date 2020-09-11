@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -133,6 +134,9 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
         int numMarkersInRainbow = 12;
         for (int i = 0; i < numMarkersInRainbow; i++) {
             MFMarker marker = map4D.addMarker(new MFMarkerOptions()
+                    .touchable(true)
+                    .draggable(true)
+                    .rotation(90.)
                     .position(new MFLocationCoordinate(
                             10 + 0.8 * Math.sin(i * Math.PI / (numMarkersInRainbow - 1)),
                             106 - 0.8 * Math.cos(i * Math.PI / (numMarkersInRainbow - 1))))
@@ -174,6 +178,22 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
             public boolean onMarkerClick(MFMarker mfMarker) {
                 OnMarkerClick(mfMarker);
                 return false;
+            }
+        });
+        map4D.setOnMarkerDragListener(new Map4D.OnMarkerDragListener() {
+            @Override
+            public void onMarkerDrag(MFMarker mfMarker) {
+                Log.e("Chung", "Dragging");
+            }
+
+            @Override
+            public void onMarkerDragEnd(MFMarker mfMarker) {
+                Log.e("Chung", "End");
+            }
+
+            @Override
+            public void onMarkerDragStart(MFMarker mfMarker) {
+                Log.e("Chung", "Start");
             }
         });
     }

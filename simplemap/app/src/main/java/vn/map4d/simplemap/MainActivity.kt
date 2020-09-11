@@ -11,11 +11,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
     }
 
     override fun onMapReady(map4D: Map4D?) {
         map4D?.enable3DMode(true)
+        map4D?.setOnMapModeHandler {
+            return@setOnMapModeHandler false
+        }
     }
 
     override fun onDestroy() {

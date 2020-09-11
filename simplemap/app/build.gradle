@@ -27,7 +27,7 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'vn.map4d:Map4dTypes:1.0.5'
+    implementation 'vn.map4d:Map4dTypes:1.0.6'
     implementation 'vn.map4d:Map4dMap:1.4.4'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

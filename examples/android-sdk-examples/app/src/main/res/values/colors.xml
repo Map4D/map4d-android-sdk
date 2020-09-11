@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="circleUpdateColor">#FF00ff57</color>
+    <color name="greenWithAlpha">#4D00ff00</color>
+    <color name="green">#00ff00</color>
+    <color name="blueWithAlpha">#4D0000fF</color>
+    <color name="blueWithAlphaFiftyPercent">#800000fF</color>
 </resources>

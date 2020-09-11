@@ -10,8 +10,8 @@ Map4D SDK for Android, written in C++, Java.
 Use Gradle
 ```xml
 dependencies {
-    implementation 'vn.map4d:Map4dTypes:1.0.5'
-    implementation 'vn.map4d:Map4dMap:1.2.12'
+    implementation 'vn.map4d:Map4dTypes:1.0.6'
+    implementation 'vn.map4d:Map4dMap:1.4.4'
 }
 ```
 Use Maven
@@ -19,7 +19,7 @@ Use Maven
 <dependency>
 	<groupId>vn.map4d</groupId>
 	<artifactId>Map4dMap</artifactId>
-	<version>1.2.12</version>
+	<version>1.4.4</version>
 	<type>pom</type>
 </dependency>
 ```
@@ -83,31 +83,41 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 }
 ```
 ## Document References
-[1. Getting started](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/0-getting-started.md) 
+[1. Getting started](docs/vi/1.4/0-getting-started.md) 
 
-[2. Map user interaction](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/1-map-user-interaction.md) 
+[2. Map user interaction](docs/vi/1.4/1-map-user-interaction.md) 
 
-[3. Map events](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/2-map-events.md)
+[3. Map events](docs/vi/1.4/2-map-events.md)
 
-[4. Marker](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/3-marker.md)
+[4. Marker](docs/vi/1.4/3-marker.md)
 
-[5. Polyline](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/4-polyline.md)
+[5. Polyline](docs/vi/1.4/4-polyline.md)
 
-[6. Polygon](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/5-polygon.md)
+[6. Polygon](docs/vi/1.4/5-polygon.md)
 
-[7. Circle](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/6-circle.md)
+[7. Circle](docs/vi/1.4/6-circle.md)
 
-[8. Tile area](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/7-tile-area.md)
+[8. Tile area](docs/vi/1.4/7-tile-area.md)
 
-[9. LatLngBounds](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/8-lat-lng-bounds.md)
+[9. LatLngBounds](docs/vi/1.4/8-lat-lng-bounds.md)
 
-[10. Map utils](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/9-map-utils.md)
+[10. Map utils](docs/vi/1.4/9-map-utils.md)
 
-[11. 3D objects](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/10-3d-objects.md)
+[11. 3D objects](docs/vi/1.4/10-3d-objects.md)
 
-[12. Effect](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/11-effect-map.md)
+[12. Effect](docs/vi/1.4/11-effect-map.md)
 
-[13. Place](https://github.com/map4d/map4d-android-sdk/blob/master/docs/vi/1.2/12-place.md)
+[13. Place](docs/vi/1.4/12-place.md)
+
+[14. Building](docs/vi/1.4/MFBuilding.md)
+
+[15. Building Overlay](docs/vi/1.4/MFBuildingOverlay.md)
+
+[16. Ground Overlay](docs/vi/1.4/MFGroundOverlay.md)
+
+[17. POI](docs/vi/1.4/MFPOI.md)
+
+[18. Tile Overlay](docs/vi/1.4/MFTileOverlay.md)
 
 License
 -------

@@ -12,37 +12,13 @@
         android:layout_height="match_parent" />
 
     <TextView
-        android:id="@+id/currentMode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="16sp"
-        android:textColor="#575757"
-        android:text="@string/currentSwitchMode3D"
-        android:background="#ffff00"/>
-
-    <TextView
-        android:id="@+id/modeSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/currentMode"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="16sp"
-        android:textColor="#575757"
-        android:text="@string/mode3dTo2d"
-        android:background="#ffff00"/>
-
-    <TextView
         android:id="@+id/lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/currentMode"
-        android:layout_below="@+id/currentMode"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
         android:textSize="16sp"
         android:textColor="#575757"
         android:text="@string/lat"
@@ -65,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:layout_alignTop="@+id/currentMode"
+        android:layout_alignTop="@id/lat"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/time"
@@ -74,11 +50,11 @@
         android:background="#ffff00"/>
 
     <TextView
+        android:layout_marginTop="8dp"
         android:id="@+id/btnSetTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/time"
-        android:layout_alignTop="@+id/lat"
         android:layout_alignRight="@+id/time"
         android:padding="5dp"
         android:text="@string/setTime"
@@ -95,17 +71,4 @@
         android:textSize="16sp"
         android:textColor="#0055ff"
         android:textAllCaps="false" />
-    <Button
-        android:id="@+id/btnSwitchMode3D"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/btnEnable3D"
-        android:layout_alignLeft="@+id/btnEnable3D"
-        android:layout_above="@+id/btnEnable3D"
-        android:layout_marginBottom="5dp"
-        android:text="@string/mode3dTo2d"
-        android:textSize="16sp"
-        android:textColor="#0055ff"
-        android:textAllCaps="false" />
-
 </RelativeLayout>
