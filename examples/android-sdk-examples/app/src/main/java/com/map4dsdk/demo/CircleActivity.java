@@ -1,6 +1,8 @@
 package com.map4dsdk.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -54,8 +56,7 @@ public class CircleActivity extends AppCompatActivity implements OnMapReadyCallb
             circle = map4D.addCircle(new MFCircleOptions()
                         .center(new MFLocationCoordinate(16.066517, 108.210354))
                         .radius(500)
-                        .fillColor("#00ff00")
-                        .fillAlpha(0.3f));
+                        .fillColor(ContextCompat.getColor(this, R.color.greenWithAlpha)));
         }
     }
 
@@ -68,8 +69,7 @@ public class CircleActivity extends AppCompatActivity implements OnMapReadyCallb
     private void updateCircle() {
         if (circle != null) {
             circle.setRadius(700);
-            circle.setFillColor("#00ff57");
-            circle.setFillAlpha(1);
+            circle.setFillColor(ContextCompat.getColor(this, R.color.circleUpdateColor));
         }
     }
 

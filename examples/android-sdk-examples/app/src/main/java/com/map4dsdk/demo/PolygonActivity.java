@@ -1,6 +1,8 @@
 package com.map4dsdk.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -77,15 +79,15 @@ public class PolygonActivity extends AppCompatActivity implements OnMapReadyCall
         polygon = map4D.addPolygon(new MFPolygonOptions()
                 .add(pointsList.toArray(new MFLocationCoordinate[pointsList.size()]))
                 .addHole(holePath.toArray(new MFLocationCoordinate[holePath.size()]))
-                .fillColor("#0000ff")
-                .alpha(0.5f));
+                .strokeColor(ContextCompat.getColor(this, R.color.green))
+                .strokeWidth(4)
+                .fillColor(ContextCompat.getColor(this, R.color.blueWithAlpha)));
     }
 
     private void updatePolygon() {
         updatePolygonPoints();
         if (polygon != null) {
-            polygon.setFillColor("#00ff00");
-            polygon.setFillAlpha(1.f);
+            polygon.setFillColor(ContextCompat.getColor(this, R.color.green));
         }
     }
 

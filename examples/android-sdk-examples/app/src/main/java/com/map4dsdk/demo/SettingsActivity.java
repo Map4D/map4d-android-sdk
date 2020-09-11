@@ -12,7 +12,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import vn.map4d.map.core.MFSupportMapFragment;
-import vn.map4d.map.core.MFSwitchMode;
 import vn.map4d.map.core.Map4D;
 import vn.map4d.map.core.OnMapReadyCallback;
 import vn.map4d.types.MFLocationCoordinate;
@@ -20,16 +19,13 @@ import vn.map4d.types.MFLocationCoordinate;
 public class SettingsActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
     private Map4D map4D;
     private boolean mode3D = true;
-    private int currentMode = 2;
-    private TextView txtMode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
         MFSupportMapFragment mapFragment = (MFSupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.settingsDemo);
         mapFragment.getMapAsync(this);
-        getSupportActionBar().setTitle(R.string.settings);
-        txtMode = findViewById(R.id.modeSwitch);
+        getSupportActionBar().setTitle(R.string.settings);;
         onListener();
     }
 
@@ -51,7 +47,6 @@ public class SettingsActivity extends AppCompatActivity implements OnMapReadyCal
     public void onListener() {
         findViewById(R.id.btnSetTime).setOnClickListener(this);
         findViewById(R.id.btnEnable3D).setOnClickListener(this);
-        findViewById(R.id.btnSwitchMode3D).setOnClickListener(this);
     }
 
     @Override
@@ -101,53 +96,6 @@ public class SettingsActivity extends AppCompatActivity implements OnMapReadyCal
             case R.id.btnEnable3D: {
                 if (map4D != null) {
                     map4D.enable3DMode(!mode3D);
-                }
-                break;
-            }
-            case R.id.btnSwitchMode3D: {
-                if (map4D != null) {
-                    MFSwitchMode switchType;
-                    ++currentMode;
-                    switch (currentMode) {
-                        case 1: {
-                            switchType = MFSwitchMode.Auto2DTo3D;
-                            Toast.makeText(getApplicationContext(), "Switch From Manual To 2D->3D", Toast.LENGTH_SHORT).show();
-                            ((Button) findViewById(R.id.btnSwitchMode3D)).setText(R.string.mode3dTo2d);
-                            txtMode.setText(R.string.mode2dTo3d);
-                            break;
-                        }
-                        case 2: {
-                            switchType = MFSwitchMode.Auto3DTo2D;
-                            Toast.makeText(getApplicationContext(), "Switch From 2D->3D To 3D->2D", Toast.LENGTH_SHORT).show();
-                            ((Button) findViewById(R.id.btnSwitchMode3D)).setText(R.string.auto);
-                            txtMode.setText(R.string.mode3dTo2d);
-                            break;
-                        }
-                        case 3: {
-                            switchType = MFSwitchMode.Auto;
-                            Toast.makeText(getApplicationContext(), "Switch From 3D->2D To Auto", Toast.LENGTH_SHORT).show();
-                            ((Button) findViewById(R.id.btnSwitchMode3D)).setText(R.string.manual);
-                            txtMode.setText(R.string.auto);
-                            break;
-                        }
-                        case 4: {
-                            switchType = MFSwitchMode.Manual;
-                            Toast.makeText(getApplicationContext(), "Switch From Auto To Manual", Toast.LENGTH_SHORT).show();
-                            ((Button) findViewById(R.id.btnSwitchMode3D)).setText(R.string.mode2dTo3d);
-                            txtMode.setText(R.string.manual);
-                            currentMode = 0;
-                            break;
-                        }
-                        default: {
-                            switchType = MFSwitchMode.Default;
-                            Toast.makeText(getApplicationContext(), "Current", Toast.LENGTH_SHORT).show();
-                            ((Button) findViewById(R.id.btnSwitchMode3D)).setText(R.string.mode2dTo3d);
-                            txtMode.setText("Default");
-                            currentMode = 0;
-                            break;
-                        }
-                    }
-                    map4D.setSwitchMode(switchType);
                 }
                 break;
             }

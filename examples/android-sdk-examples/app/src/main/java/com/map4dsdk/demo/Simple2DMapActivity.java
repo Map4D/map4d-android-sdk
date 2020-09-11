@@ -6,7 +6,6 @@ import android.os.Bundle;
 import vn.map4d.map.camera.MFCameraUpdateFactory;
 import vn.map4d.types.MFLocationCoordinate;
 import vn.map4d.map.core.MFSupportMapFragment;
-import vn.map4d.map.core.MFSwitchMode;
 import vn.map4d.map.core.Map4D;
 import vn.map4d.map.core.OnMapReadyCallback;
 
@@ -40,7 +39,12 @@ public class Simple2DMapActivity extends AppCompatActivity implements OnMapReady
 
     @Override
     public void onMapReady(Map4D map4D) {
-        map4D.setSwitchMode(MFSwitchMode.Manual);
+        map4D.setOnMapModeHandler(new Map4D.OnMapModeHandler() {
+            @Override
+            public boolean shouldChangeMapMode() {
+                return false;
+            }
+        });
         map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(new MFLocationCoordinate(10.771666, 106.704405), 16));
         //map4D.addMarker(new MFMarkerOptions().title("Quan 1").snippet("Trung Tam Hanh Chinh").position(new MFLocationCoordinate(10.771666, 106.704405)));
     }

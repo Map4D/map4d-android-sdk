@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 import vn.map4d.map.annotations.MFBuilding;
 import vn.map4d.map.camera.MFCameraPosition;
 import vn.map4d.map.camera.MFCameraUpdateFactory;
@@ -61,7 +63,7 @@ public class MapEventsActivity extends AppCompatActivity implements OnMapReadyCa
     }
 
     @Override
-    public void onMapReady(Map4D map4D) {
+    public void onMapReady(final Map4D map4D) {
         this.map4D = map4D;
         map4D.moveCamera(MFCameraUpdateFactory.newCoordinateZoom(new MFLocationCoordinate(16.066517, 108.210354), 14));
         updateCameraInfo();
@@ -98,7 +100,7 @@ public class MapEventsActivity extends AppCompatActivity implements OnMapReadyCa
         map4D.setOnBuildingClickListener(new Map4D.OnBuildingClickListener() {
             @Override
             public void onBuildingClick(MFBuilding mfBuilding) {
-                txtMapState.setText("Building:   " + mfBuilding.getName());
+                map4D.setSelectedBuildings(Arrays.asList(mfBuilding.getBuildingId()));
             }
         });
 
