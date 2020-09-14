@@ -32,14 +32,28 @@ Nếu bạn cài đặt thời gian cho map là 1/1/2017 thì tất cả các đ
 ```
 
 ## 3. Các sự kiện trên đối tượng 3D
-Sự kiện click phát sinh khi người dùng click lên đối Building 3D
+- Sự kiện click phát sinh khi người dùng click lên đối Building 3D của map4D
 
 ```java
     @Override
     public void onMapReady(Map4D map4D) {
         map4D.setOnBuildingClickListener(new Map4D.OnBuildingClickListener() {
             @Override
-            public void onBuildingClick(MFBuilding mfBuilding) {
+            public void onBuildingClick(String buidingID, String name, MFLocationCoordinate location) {
+                txtMapState.setText("Building:   " + name);
+            }
+        });
+    }
+```
+
+- Sự kiện click phát sinh khi người dùng click lên đối tượng Building 3D được người dùng thêm vào thông qua MFBuilding
+
+```java
+    @Override
+    public void onMapReady(Map4D map4D) {
+        map4D.setOnUserBuildingClickListener(new Map4D.OnBuildingClickListener() {
+            @Override
+            public void onUserBuildingClick(MFBuilding mfBuilding) {
                 txtMapState.setText("Building:   " + mfBuilding.getName());
             }
         });
