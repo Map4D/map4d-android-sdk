@@ -111,13 +111,15 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
 [14. Building](docs/vi/1.4/MFBuilding.md)
 
-[15. Building Overlay](docs/vi/1.4/MFBuildingOverlay.md)
+[15. POI](docs/vi/1.4/MFPOI.md)
 
-[16. Ground Overlay](docs/vi/1.4/MFGroundOverlay.md)
+[16. Tile Overlay](docs/vi/1.4/MFTileOverlay.md)
 
-[17. POI](docs/vi/1.4/MFPOI.md)
+[17. Building Overlay](docs/vi/1.4/MFBuildingOverlay.md)
 
-[18. Tile Overlay](docs/vi/1.4/MFTileOverlay.md)
+[18. POI Overlay](docs/vi/1.4/MFPOIOverlay.md)
+
+[19. Ground Overlay](docs/vi/1.4/MFGroundOverlay.md)
 
 License
 -------
