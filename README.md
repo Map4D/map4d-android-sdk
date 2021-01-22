@@ -11,7 +11,7 @@ Use Gradle
 ```xml
 dependencies {
     implementation 'vn.map4d:Map4dTypes:1.0.6'
-    implementation 'vn.map4d:Map4dMap:1.4.4'
+    implementation 'vn.map4d:Map4dMap:1.5.0'
 }
 ```
 Use Maven
@@ -19,7 +19,7 @@ Use Maven
 <dependency>
 	<groupId>vn.map4d</groupId>
 	<artifactId>Map4dMap</artifactId>
-	<version>1.4.4</version>
+	<version>1.5.0</version>
 	<type>pom</type>
 </dependency>
 ```
@@ -83,45 +83,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 }
 ```
 ## Document References
-[1. Getting started](docs/vi/1.4/0-getting-started.md) 
-
-[2. Map user interaction](docs/vi/1.4/1-map-user-interaction.md) 
-
-[3. Map events](docs/vi/1.4/2-map-events.md)
-
-[4. Marker](docs/vi/1.4/3-marker.md)
-
-[5. Polyline](docs/vi/1.4/4-polyline.md)
-
-[6. Polygon](docs/vi/1.4/5-polygon.md)
-
-[7. Circle](docs/vi/1.4/6-circle.md)
-
-[8. Tile area](docs/vi/1.4/7-tile-area.md)
-
-[9. LatLngBounds](docs/vi/1.4/8-lat-lng-bounds.md)
-
-[10. Map utils](docs/vi/1.4/9-map-utils.md)
-
-[11. 3D objects](docs/vi/1.4/10-3d-objects.md)
-
-[12. Effect](docs/vi/1.4/11-effect-map.md)
-
-[13. Place](docs/vi/1.4/12-place.md)
-
-[14. Building](docs/vi/1.4/MFBuilding.md)
-
-[15. POI](docs/vi/1.4/MFPOI.md)
-
-[16. Tile Overlay](docs/vi/1.4/MFTileOverlay.md)
-
-[17. Building Overlay](docs/vi/1.4/MFBuildingOverlay.md)
-
-[18. POI Overlay](docs/vi/1.4/MFPOIOverlay.md)
-
-[19. Ground Overlay](docs/vi/1.4/MFGroundOverlay.md)
+https://docs.map4d.vn/map4d-android-sdk
 
 License
 -------
 
-Copyright (C) 2016 IOT Link Ltd. All Rights Reserved.
+Copyright (C) 2021 IOT Link Ltd. All Rights Reserved.
