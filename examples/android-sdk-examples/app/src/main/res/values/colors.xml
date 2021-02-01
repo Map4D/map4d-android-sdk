@@ -8,4 +8,5 @@
     <color name="green">#00ff00</color>
     <color name="blueWithAlpha">#4D0000fF</color>
     <color name="blueWithAlphaFiftyPercent">#800000fF</color>
+    <color name="circleStrokeColor">#0000ff</color>
 </resources>

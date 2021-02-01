@@ -14,7 +14,6 @@
   - [Polygon](guides/polygon.md)
   - [POI](guides/poi.md)
   - [Building](guides/building.md)
-  - [Marker Cluster](guides/marker-cluster.md)
 
 - Layers
   - [Tile Overlay](guides/tile-overlay.md)
@@ -39,7 +38,6 @@
     - [Polygon](reference/polygon.md)
     - [POI](reference/poi.md)
     - [Building](reference/building.md)
-    - [Marker Cluster](reference/marker-cluster.md)
   - Layers
     - [Tile Overlay](reference/tile-overlay.md)
     - [Ground Overlay](reference/ground-overlay.md)

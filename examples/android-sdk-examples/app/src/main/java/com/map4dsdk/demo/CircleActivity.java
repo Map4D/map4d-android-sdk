@@ -70,6 +70,8 @@ public class CircleActivity extends AppCompatActivity implements OnMapReadyCallb
         if (circle != null) {
             circle.setRadius(700);
             circle.setFillColor(ContextCompat.getColor(this, R.color.circleUpdateColor));
+            circle.setStrokeColor(ContextCompat.getColor(this, R.color.circleStrokeColor));
+            circle.setStrokeWidth(5);
         }
     }
 
