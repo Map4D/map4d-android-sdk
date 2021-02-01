@@ -36,7 +36,7 @@
         <activity android:name=".PolylineActivity" />
         <activity android:name=".PolygonActivity" />
         <activity android:name=".CircleActivity" />
-        <activity android:name=".TileAreaActivity" />
+<!--        <activity android:name=".TileAreaActivity" />-->
         <activity android:name=".MyLocationActivity" />
         <activity android:name=".MapEventsActivity" />
         <activity android:name=".CameraAnimateActivity"></activity>

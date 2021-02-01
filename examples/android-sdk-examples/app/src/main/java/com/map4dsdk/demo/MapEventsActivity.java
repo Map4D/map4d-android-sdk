@@ -99,8 +99,8 @@ public class MapEventsActivity extends AppCompatActivity implements OnMapReadyCa
 
         map4D.setOnBuildingClickListener(new Map4D.OnBuildingClickListener() {
             @Override
-            public void onBuildingClick(MFBuilding mfBuilding) {
-                map4D.setSelectedBuildings(Arrays.asList(mfBuilding.getBuildingId()));
+            public void onBuildingClick(String s, String s1, MFLocationCoordinate mfLocationCoordinate) {
+                map4D.setSelectedBuildings(Arrays.asList(s));
             }
         });
 

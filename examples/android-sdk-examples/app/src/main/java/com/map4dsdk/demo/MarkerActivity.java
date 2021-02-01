@@ -14,10 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import vn.map4d.map.annotations.MFBuilding;
+import vn.map4d.map.annotations.MFBuildingOptions;
 import vn.map4d.map.annotations.MFMarker;
 import vn.map4d.map.annotations.MFMarkerOptions;
+import vn.map4d.map.annotations.MFPOI;
 import vn.map4d.map.camera.MFCameraPosition;
 import vn.map4d.map.camera.MFCameraUpdateFactory;
 import vn.map4d.map.core.MFCoordinateBounds;
@@ -180,6 +184,27 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
                 return false;
             }
         });
+        map4D.setOnUserPOIClickListener(new Map4D.OnUserPOIClickListener() {
+            @Override
+            public void onUserPOIClick(MFPOI mfpoi) {
+                Toast.makeText(MarkerActivity.this, "User Poi Clicked: " + mfpoi.getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        map4D.setOnPOIClickListener(new Map4D.OnPOIClickListener() {
+            @Override
+            public void onPOIClick(String placeId, String title, MFLocationCoordinate location) {
+
+            }
+        });
+        map4D.enable3DMode(true);
+        MFBuildingOptions extrudeBuildingOptions = new MFBuildingOptions().location(new MFLocationCoordinate(10.774544, 106.707764))
+          .name("Extrude Building")
+          .model(
+            new ArrayList<MFLocationCoordinate>(Arrays.asList(new MFLocationCoordinate(10.774544, 106.707764), new MFLocationCoordinate(10.773766, 106.709001),
+              new MFLocationCoordinate(10.772759, 106.708627), new MFLocationCoordinate( 10.774045, 106.707806))))
+          .height(100.0);
+        map4D.addBuilding(extrudeBuildingOptions);
+        map4D.setFilterPlaces(new ArrayList());
         map4D.setOnMarkerDragListener(new Map4D.OnMarkerDragListener() {
             @Override
             public void onMarkerDrag(MFMarker mfMarker) {
@@ -194,6 +219,26 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
             @Override
             public void onMarkerDragStart(MFMarker mfMarker) {
                 Log.e("Chung", "Start");
+            }
+        });
+        map4D.setOnBuildingClickListener(new Map4D.OnBuildingClickListener() {
+            @Override
+            public void onBuildingClick(String buildingId, String name, MFLocationCoordinate location) {
+                MarkerActivity.this.map4D.setSelectedBuildings(Arrays.asList(buildingId));
+            }
+        });
+        map4D.enable3DMode(true);
+        MFBuildingOptions buildingOptions = new MFBuildingOptions();
+        buildingOptions.location(new MFLocationCoordinate(16.088987, 108.227940))
+          .name("Test Building")
+          .model("https://sw-hcm-1.vinadata.vn/v1/AUTH_d0ecabcbdcd74f6aa6ac9a5da528eb78/sdk/models/5b21d9a5cd18d02d045a5e99")
+          .texture("https://sw-hcm-1.vinadata.vn/v1/AUTH_d0ecabcbdcd74f6aa6ac9a5da528eb78/sdk/textures/0cb35e1610c34e55946a7839356d8f66.jpg");
+        map4D.addBuilding(buildingOptions);
+        map4D.moveCamera(MFCameraUpdateFactory.newCoordinate(new MFLocationCoordinate(16.088987, 108.227940)));
+        map4D.setOnUserBuildingClickListener(new Map4D.OnUserBuildingClickListener() {
+            @Override
+            public void onUserBuildingClick(MFBuilding mfBuilding) {
+                mfBuilding.setSelected(true);
             }
         });
     }
