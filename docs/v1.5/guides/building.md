@@ -81,7 +81,7 @@ public final class MFBuilding extends Annotation {
 
 Các thuộc tính của **MFBuildingOptions** :
 - **name** : chỉ định tên của Building mà bạn tạo. Tên mặc định sẽ là **Unknown name**
-- **location** : chỉ định một **ILatLng** để xác định vị trí của Building.
+- **location** : chỉ định một **MFLocationCoordinate** để xác định vị trí của Building.
 - **model** : chỉ định một đường dẫn URL để lấy dữ liệu model cho Building.
 - **texture** : chỉ định một đường dẫn URL để lấy dữ liệu texture cho Building. Thuộc tính này chỉ được dùng khi
 thuộc tính **model** được set giá trị. Nó sẽ map texture này vào **model** mà bạn đã set cho Building. Nếu bạn không set giá
@@ -91,7 +91,7 @@ là mảng vị trí này. Nó kết hợp với thuộc tính **height** để 
 Building). Trường hợp dùng **coordinates** thì sẽ không dùng đến thuộc tính **texture**. Nếu set giá trị cho **coordinates**
 và cả **model** đồng thời thì sẽ ưu tiên lấy giá trị của **model**để tạo Building.
 - **height** : chỉ định chiều cao của Building theo đơn vị là mét. Thuộc tính này chỉ có tác dụng khi Building của
-bạn được tạo từ một mảng ILatLng thông qua thuộc tính **coordinates** (hay còn gọi là Extrude Building). Nó không có tác
+bạn được tạo từ một mảng MFLocationCoordinate thông qua thuộc tính **coordinates** (hay còn gọi là Extrude Building). Nó không có tác
 dụng với Building được vẽ bằng Model và Texture. Giá trị mặc định là **1**.
 - **scale** : chỉ định tỉ lệ của Building được vẽ ra ở trên bản đồ so với tỉ lệ thật của nó. Ví dụ khi giá trị **scale**
 là 0.5 thì Building sẽ nhỏ hơn một nửa so với kích thước thật của nó. Giá trị mặc định là **1**.
@@ -107,7 +107,7 @@ vẽ như một Building bình thường. Giá trị mặc định là **false**
 
 ### 2. Tạo Building
 
-<img src="https://raw.githubusercontent.com/map4d/map4d-android-sdk/master/docs/resource/user_building.jpg" width="400" height="800" />
+![User building](../../resource/user_building.jpg)
   
 <!-- tabs:start -->
 #### ** Kotlin **
@@ -134,7 +134,7 @@ vẽ như một Building bình thường. Giá trị mặc định là **false**
 
 ### 3. Tạo Extrude Building
 
-<img src="https://raw.githubusercontent.com/map4d/map4d-android-sdk/master/docs/resource/extrude-building.jpg" width="400" height="800" />
+![User building](../../resource/extrude-building.jpg)
   
 <!-- tabs:start -->
 #### ** Kotlin **

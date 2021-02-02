@@ -79,7 +79,7 @@ so với các đối tượng khác. Giá trị mặc định là **1.0f**.
 
 ### 2. Tạo POI
 
-<img src="https://raw.githubusercontent.com/map4d/map4d-android-sdk/master/docs/resource/v1.4/poi.jpg" width="400" height="800" /> 
+![CocosPod](../../resource/v1.4/poi.jpg) 
   
 <!-- tabs:start -->
 #### ** Kotlin **
