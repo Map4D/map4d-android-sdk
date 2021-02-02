@@ -2,7 +2,6 @@
 - [Changelog](changelog.md)
 
 - Interacting with the Map
-  - [Map Options](guides/map-options.md)
   - [Controls](guides/map-controls.md)
   - [Events](guides/map-events.md)
   - [Effect](guides/map-effects.md)
@@ -20,7 +19,6 @@
   - [Ground Overlay](guides/ground-overlay.md)
   - [POI Overlay](guides/poi-overlay.md)
   - [Building Overlay](guides/building-overlay.md)
-  - [Data Layer](guides/data-layer.md)
 
 - Utils
   - [Projection](guides/projection.md)
@@ -43,4 +41,3 @@
     - [Ground Overlay](reference/ground-overlay.md)
     - [POI Overlay](reference/poi-overlay.md)
     - [Building Overlay](reference/building-overlay.md)
-    - [Data Layer](reference/data-layer.md)
