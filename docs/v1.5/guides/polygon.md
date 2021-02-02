@@ -81,7 +81,7 @@ trên bản đồ. Giá trị mặc định là **-1.0f**.
 
 ## 2. Tạo polygon
 
-<img src="https://raw.githubusercontent.com/map4d/map4d-android-sdk/master/docs/resource/v1.4/polygon.jpg" width="400" height="800" />
+![Polygon](../../resource/v1.4/polygon.jpg)
 
 > Tạo đối tượng polygon từ MFPolygonOptions
 

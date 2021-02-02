@@ -13,35 +13,68 @@ public final class MFMarkerOptions {
     private MFLocationCoordinate position;
     
     private MFBitmapDescriptor icon;
-
+    
     private View iconView;
-
+    
     private double anchorU;
-
+    
     private double anchorV;
-
+    
     private boolean visible;
-
+    
     private boolean touchable;
-
+    
     private double elevation;
-
+    
     private float zIndex;
-
+    
     private float windowAnchorU;
-
+    
     private float windowAnchorV;
-
+    
     private String title;
-
+    
     private String snippet;
-
+    
     private double rotation;
-
+    
     private boolean draggable;
-
+    
     private Object userData;
-  }
+}
+  
+public final class MFMarker extends Annotation {
+  public MFMarker(@NonNull MFMarkerOptions markerOptions, @NonNull AnnotationDelegate annotationDelegate);
+  public MFLocationCoordinate getPosition(); // vị trí của marker
+  public MFBitmapDescriptor getIcon();
+  public double getAnchorU(); // anchorU của Marker
+  public double getAnchorV(); // anchorV của Marker
+  public boolean isVisible(); // check marker show/hide
+  public View getIconView(); // get custom View của marker
+  public String getSnippet(); // get value của snippet
+  public String getTitle(); // get value của Title
+  public double getElevation(); //độ cao của marker
+  public float getZIndex(); // zIndex của Marker
+  public float getWindowAnchorU(); // anchorU của marker trong khoảng [0, 1]
+  public float getWindowAnchorV(); // anchorV của marker trong khoảng [0, 1]
+  public void hideInfoWindow(); // ẩn infoWindow
+  public boolean isInfoWindowShown(); //check infoWindow show or hide
+  public void setPosition(@NonNull final MFLocationCoordinate position); //position của marker on Map
+  public void setSnippet(String snippet); //set snippet cho Marker
+  public void setTitle(String title); //set Tittle cho marker
+  public void setWindowAnchor(float windowAnchorU, float windowAnchorV); // infoWindow Anchor
+  public void setVisible(final boolean visible)// show/hide marker
+  public void setZIndex(final float zIndex); // hiển thị theo thứ tự index, index càng cao thì vẽ trước
+  public void setIconView(@NonNull final View iconView); // set custom View Marker
+  public void showInfoWindow(); // hiển thị InfoWindow
+  public void remove(); // xóa marker từ map
+  public boolean isTouchable(); // lấy giá trị của touchable
+  public void setTouchable(boolean touchable); //set giá trị touchable
+  public boolean isDraggable(); // lấy giá trị của draggable
+  public void setDraggable(boolean draggable); //set giá trị draggable
+  public double getRotation(); // lấy giá trị góc quay marker
+  public void setRotation(); // set giá trị góc quay marker
+}
 ```
 
 Các thuộc tính của **Marker Options** :
@@ -137,7 +170,7 @@ public final class MFBitmapDescriptorFactory {
 
 ```kotlin
      val marker = map4D.addMarker(MFMarkerOptions()
-                    .position(new LatLng(10.771666, 106.704405))
+                    .position(MFLocationCoordinate(10.771666, 106.704405))
                     .icon(MFBitmapDescriptorFactory.fromResource(R.drawable.ic_add_location_white_48d)))
 ```
 
@@ -145,7 +178,7 @@ public final class MFBitmapDescriptorFactory {
 
 ```java
      MFMarker marker = map4D.addMarker(new MFMarkerOptions()
-                    .position(new LatLng(10.771666, 106.704405))
+                    .position(new MFLocationCoordinate(10.771666, 106.704405))
                     .icon(MFBitmapDescriptorFactory.fromResource(R.drawable.ic_add_location_white_48dp)));
 ```
 <!-- tabs:end -->
@@ -328,7 +361,7 @@ marker.isDraggable = true
 #### ** Java **
 ```java
 MFMarker marker = map4D.addMarker(new MFMarkerOptions()
-                    .position(new LatLng(10.771666, 106.704405))
+                    .position(new MFLocationCoordinate(10.771666, 106.704405))
                     .draggable(true));  
 or
 
