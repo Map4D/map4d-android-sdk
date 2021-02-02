@@ -22,8 +22,6 @@
 
 - Utils
   - [Projection](guides/projection.md)
-  - [Coordinate Transformer](guides/coordinate-transformer.md)
-  - [Measure](guides/measure.md)
 
 - References
   - Maps
