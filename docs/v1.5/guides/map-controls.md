@@ -31,13 +31,13 @@ Dùng hai ngón tay thu hẹp/ mở rộng khoảng cách của 2 ngón tay trê
 này là một thuộc tính của lớp `Map4D`
 
 - Các điều khiển sau có thể được bật và tắt theo các phương thức sau:
-    - `setMyLocationButtonEnabled()`: Điều khiển bật tắt nút myLocation mà Map4d Android SDK cung cấp.
-    - `setScrollGesturesEnabled()`: Điều khiển các cử chỉ di chuyển Map được bật hay tắt. Nếu được bật, người dùng có thể vuốt để di chuyển map.
-    - `setZoomGesturesEnabled()`: Điều khiển các cử chỉ thu phóng được bật hay tắt. Nếu được bật, người dùng có thể nhấn đúp, dùng hai ngón tay thu hẹp hoặc mở rộng để thay đổi mức zoom của camera.
-    - `setTiltGesturesEnabled()`: Điều khiển các cử chỉ nghiêng được bật hay tắt. Nếu được bật, người dùng có thể sử dụng hai ngón tay vuốt dọc xuống hoặc vuốt lên để nghiêng camera.
-    - `setRotateGesturesEnabled()`: Điều khiển xem các cử chỉ xoay được bật hay tắt. Nếu được bật, người dùng có thể sử dụng cử chỉ xoay hai ngón tay để xoay camera.
+    - `setMyLocationButtonEnabled()`: Bật tắt nút myLocation mà Map4D Android SDK cung cấp.
+    - `setScrollGesturesEnabled()`: Bật tắt cử chỉ di chuyển Map. Nếu được bật, người dùng có thể vuốt để di chuyển map.
+    - `setZoomGesturesEnabled()`: Bật tắt các cử chỉ phóng to hoặc thu nhỏ Map. Nếu được bật, người dùng có thể nhấn đúp, dùng hai ngón tay thu hẹp hoặc mở rộng để thay đổi mức zoom của camera.
+    - `setTiltGesturesEnabled()`: Bật tắt các cử chỉ nghiêng Map. Nếu được bật, người dùng có thể sử dụng hai ngón tay vuốt dọc xuống hoặc vuốt lên để nghiêng camera.
+    - `setRotateGesturesEnabled()`: Bật tắt tất các cử chỉ xoay Map. Nếu được bật, người dùng có thể sử dụng cử chỉ xoay hai ngón tay để xoay camera.
 
-**Chú ý:** Bạn có thể bật hoặc tắt tất cả các điều khiển thông qua phương thức `setAllGesturesEnabled()`
+**Chú ý:** Chúng ta có thể bật hoặc tắt tất cả các cử chỉ điều khiển Map thông qua phương thức `setAllGesturesEnabled()`
 
 <!-- tabs:start -->
 #### ** Java **
