@@ -78,7 +78,7 @@ bản đồ. Giá trị mặc định là **-1.0f**.
 
 ### 2. Tạo circle
 
-![Circle](https://raw.githubusercontent.com/iotlinkadmin/map4d-android-sdk/master/docs/resource/6-circle.png)
+![Circle](../../resource/6-circle.png)
 
 - Tạo circle from MFCircleOptions 
 
@@ -106,7 +106,7 @@ Như ví dụ trên thì chúng ta tạo một Circle với các tùy chỉnh nh
 
 - Tạo circle với strokeColor and strokeWidth.
 
-![Circle](https://raw.githubusercontent.com/map4d/map4d-android-sdk/master/docs/resource/6-circle-stroke.jpg)
+![Circle](../../resource/6-circle-stroke.jpg)
 
 <!-- tabs:start -->
 #### ** Kotlin **

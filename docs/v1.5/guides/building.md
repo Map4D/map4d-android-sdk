@@ -204,7 +204,7 @@ or
 Ngoài ra để kiểm tra các building có sẵn có được hiện trên bản đồ hay không bạn cũng có thể sử dụng phương thức **isBuildingsEnabled()**
 của lớp **map4d.Map**. Phương thức này sẽ trả về một giá trị **boolean** tương ứng với các building có được hiện hay không.
 
-<!-- tabs:start -->\
+<!-- tabs:start -->
 #### ** Kotlin **
 ```kotlin 
 val isBuildingsEnabled = map4D?.isBuildingsEnabled ?: false
