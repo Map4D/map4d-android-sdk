@@ -196,7 +196,6 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
 
             }
         });
-        map4D.enable3DMode(true);
         MFBuildingOptions extrudeBuildingOptions = new MFBuildingOptions().location(new MFLocationCoordinate(10.774544, 106.707764))
           .name("Extrude Building")
           .model(
@@ -227,7 +226,7 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
                 MarkerActivity.this.map4D.setSelectedBuildings(Arrays.asList(buildingId));
             }
         });
-        map4D.enable3DMode(true);
+        //map4D.enable3DMode(true);
         MFBuildingOptions buildingOptions = new MFBuildingOptions();
         buildingOptions.location(new MFLocationCoordinate(16.088987, 108.227940))
           .name("Test Building")
@@ -241,6 +240,27 @@ public class MarkerActivity extends AppCompatActivity implements OnMapReadyCallb
                 mfBuilding.setSelected(true);
             }
         });
+        ArrayList<MFLocationCoordinate> latLngList = new ArrayList();
+        latLngList.add(new MFLocationCoordinate(16.067218, 108.213916));
+        latLngList.add(new MFLocationCoordinate(16.066496, 108.210311));
+        latLngList.add(new MFLocationCoordinate(16.064877, 108.210397));
+        latLngList.add(new MFLocationCoordinate(16.059980, 108.211137));
+        latLngList.add(new MFLocationCoordinate(16.059516, 108.208358));
+
+        for (MFLocationCoordinate latlng :
+          latLngList ) {
+            MFMarkerOptions markerOptions = new MFMarkerOptions().position(latlng);
+            map4D.addMarker(markerOptions);
+        }
+        MFCoordinateBounds.Builder builder = MFCoordinateBounds.builder().includes(
+          Arrays.asList(new MFLocationCoordinate(16.067218, 108.213916),
+            new MFLocationCoordinate(16.066496, 108.210311),
+            new MFLocationCoordinate(16.064877, 108.210397),
+            new MFLocationCoordinate(16.059980, 108.211137),
+            new MFLocationCoordinate(16.059516, 108.208358)));
+        MFCoordinateBounds coordinateBounds = builder.build();
+        MFCameraPosition cameraPositionForBounds = map4D.getCameraPositionForBounds(coordinateBounds, 10);
+        map4D.moveCamera(MFCameraUpdateFactory.newCameraPosition(cameraPositionForBounds));
     }
 
     private void OnMarkerClick(MFMarker mfMarker) {

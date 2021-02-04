@@ -81,7 +81,7 @@ trên bản đồ. Giá trị mặc định là **-1.0f**.
 
 ### 2. Tạo polyline
 
-![Polyline](https://raw.githubusercontent.com/iotlinkadmin/map4d-android-sdk/master/docs/resource/4-polyline.png)
+![Polyline](../../resource/4-polyline.png)
 
 > Tạo đối tượng polyline từ **MFPolylineOptions**
 
@@ -161,7 +161,7 @@ Ví dụ trên thì chúng ta tạo một polyline từ danh sách các tọa đ
 
 - **Result**: 
 
-![Polyline](https://raw.githubusercontent.com/map4d/map4d-android-sdk/master/docs/resource/4-polyline-dotted.jpg)
+![Polyline](../../resource/4-polyline-dotted.jpg)
 
 ### 3. Xóa Polyline
 
