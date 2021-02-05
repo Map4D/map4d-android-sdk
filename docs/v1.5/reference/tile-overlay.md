@@ -52,5 +52,5 @@ var options = MFTileOverlayOptions()
 
 | Name           | Parameters                              | Return Value | Description                                                                            |
 |----------------|-----------------------------------------|--------------|----------------------------------------------------------------------------------------|
-| **getTileUrl** | int, int, int, boolean                  | String?      | Trả về là một đường dẫn URL chứa hình ảnh của Tile ứng với tọa độ x, y và mức zoom tương ứng|
+| **getTileUrl** | int, int, int, boolean                  | String?      | Trả về là một đường dẫn URL chứa hình ảnh của Tile ứng với tọa độ x, y, mức zoom và chế độ Map tương ứng|
 

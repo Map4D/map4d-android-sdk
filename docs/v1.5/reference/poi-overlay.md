@@ -51,6 +51,6 @@ var options = MFPOIOverlayOptions()
 
 | Name           | Parameters                              | Return Value | Description                                                                            |
 |----------------|-----------------------------------------|--------------|----------------------------------------------------------------------------------------|
-| **getPOIUrl** | int, int, int, boolean                   | String       | Trả về là một đường dẫn URL chứa dữ liệu của POI trên Tile ứng với tọa độ x, y và mức zoom tương ứng|
+| **getPOIUrl** | int, int, int, boolean                   | String       | Trả về là một đường dẫn URL chứa dữ liệu của POI trên Tile ứng với tọa độ x, y, mức zoom và chế độ Map tương ứng|
 | **parserPOIData**| String                                |List< MFPOIData >| Biến đổi dữ liệu từ String trả về từ phương thức `getPOIUrl` sang List< MFPOIData >     |
 

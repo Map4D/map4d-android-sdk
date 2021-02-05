@@ -9,14 +9,18 @@ Map4D Android SDK không chỉ mang hình ảnh thực tế lên trên bản đ�
 
 ## Installation
 
-Use Gradle
+<!-- tabs:start -->
+#### ** Gradle **
+
 ```xml
 dependencies {
   implementation 'vn.map4d:Map4dTypes:1.0.6'
   implementation 'vn.map4d:Map4dMap:1.5.0'
 }
 ```
-Use Maven
+
+#### ** Maven **
+
 ```xml
 <dependency>
 	<groupId>vn.map4d</groupId>
@@ -25,6 +29,7 @@ Use Maven
 	<type>pom</type>
 </dependency>
 ```
+<!-- tabs:end -->
 
 ## Using
 
@@ -58,11 +63,46 @@ Use Maven
 ```
 3. Working with map view (kotlin)
 
+<!-- tabs:start -->
+#### ** Java **
+
+```java
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{ 
+    
+    private MFMapView mapView;
+	private Map4D map4D;
+  
+    @Override
+    protected void onCreate(Bundle savedInstanceState) { 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.simple3d_map_activity);
+        mapView = findViewById(R.id.map3D);
+        mapView.getMapAsync(this); 
+    }
+  
+    @Override
+    public void onMapReady(Map4D map4D) { 
+        map4D.enable3DMode(true);
+		// Your code
+    }
+      
+    @Override
+    protected void onDestroy() { 
+        mapView.onDestroy(); 
+        super.onDestroy();
+    }
+}
+```
+
+#### ** Kotlin **
+
 ```kotlin
 import vn.map4d.map.core.Map4D
 import vn.map4d.map.core.OnMapReadyCallback
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
+
+	private var map4D: Map4D? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +112,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(map4D: Map4D?) {
         map4D?.enable3DMode(true)
-        //TODO
+        // Your code
     }
     
      override fun onDestroy() {
@@ -81,5 +121,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
      }
 }
 ```
+<!-- tabs:end -->
 
 > **Chú ý:** Khi dùng MFMapView thì cần phải destroy view để tránh trường hợp leak memory

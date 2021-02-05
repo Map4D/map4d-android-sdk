@@ -57,5 +57,5 @@ var options = MFGroundOverlayOptions()
 
 | Name           | Parameters                              | Return Value | Description                                                                            |
 |----------------|-----------------------------------------|--------------|----------------------------------------------------------------------------------------|
-| **getGroundUrl** | int, int, int, boolean                | String?      | Trả về là một đường dẫn URL chứa hình ảnh của Tile ứng với tọa độ x, y và mức zoom tương ứng|
+| **getGroundUrl** | int, int, int, boolean                | String?      | Trả về là một đường dẫn URL chứa hình ảnh của Tile ứng với tọa độ x, y, mức zoom và chế độ Map tương ứng|
 
