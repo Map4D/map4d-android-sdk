@@ -5,7 +5,7 @@ Map4D SDK for Android, written in C/C++, Java.
 > Map4D Android SDK cho phép bạn tùy chỉnh bản đồ với nội dung để hiển thị trên thiết bị android hỗ trợ opengl 2.0   
 Map4D Android SDK không chỉ mang hình ảnh thực tế lên trên bản đồ 3D, ngoài ra còn cho phép tương tác và điều chỉnh các đối tượng 3D của bạn  
 
-[![Map4D Android SDK](../resource/overView.png)](https://map4d.vn) 
+[![Map4D Android SDK](resource/overView.png)](https://map4d.vn) 
 
 ## Installation
 
