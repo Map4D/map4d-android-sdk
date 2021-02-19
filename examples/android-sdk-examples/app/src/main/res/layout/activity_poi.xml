@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PoiActivity">
+    <vn.map4d.map.core.MFMapView
+        android:id="@+id/poiMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <Button
+        android:id="@+id/addPoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="@string/addPoi"
+        android:background="@null"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        app:backgroundTint="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/removePoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="@string/removePoi"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:background="@null"
+        app:backgroundTint="@null"
+        app:layout_constraintStart_toEndOf="@id/addPoi"
+        app:layout_constraintTop_toTopOf="@id/addPoi"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

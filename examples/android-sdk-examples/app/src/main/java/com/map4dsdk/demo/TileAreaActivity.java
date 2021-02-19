@@ -11,14 +11,12 @@ import java.util.List;
 import vn.map4d.map.camera.MFCameraUpdateFactory;
 import vn.map4d.map.core.MFCoordinateBounds;
 import vn.map4d.map.core.MFSupportMapFragment;
-import vn.map4d.map.core.MFTileArea;
-import vn.map4d.map.core.MFTileAreaOptions;
 import vn.map4d.map.core.Map4D;
 import vn.map4d.map.core.OnMapReadyCallback;
 import vn.map4d.types.MFLocationCoordinate;
 
-public class TileAreaActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
-    private Map4D map4D;
+public abstract class TileAreaActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
+    /*private Map4D map4D;
     private MFTileArea tileArea;
     private MFCoordinateBounds bounds = null;
     private boolean tileAreaAdded = true;
@@ -112,5 +110,5 @@ public class TileAreaActivity extends AppCompatActivity implements OnMapReadyCal
                 break;
             }
         }
-    }
+    }*/
 }

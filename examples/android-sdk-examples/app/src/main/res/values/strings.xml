@@ -69,4 +69,14 @@
     <string name="animateDaNang">Animate To Da Nang</string>
     <string name="moveSaiGon">Move to Sai Gon</string>
     <string name="moveDanang">Move to Da Nang</string>
+    <string name="tileOverlay">Tile Overlay</string>
+    <string name="poiOverlay">POI Overlay</string>
+    <string name="groundOverlay">Ground Overlay</string>
+    <string name="buildingOverlay">Building Overlay</string>
+    <string name="poi">POI</string>
+    <string name="removePoi">Remove Poi</string>
+    <string name="addPoi">Add Poi</string>
+    <string name="building">Building</string>
+    <string name="addBuilding">Add building</string>
+    <string name="removeBuilding">Remove building</string>
 </resources>
