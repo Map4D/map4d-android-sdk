@@ -9,4 +9,6 @@
     <color name="blueWithAlpha">#4D0000fF</color>
     <color name="blueWithAlphaFiftyPercent">#800000fF</color>
     <color name="circleStrokeColor">#0000ff</color>
+    <color name="colorActiveStroke">#669DF6</color>
+    <color name="colorInactiveStroke">#BBBDBF</color>
 </resources>

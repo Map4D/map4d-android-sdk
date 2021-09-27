@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import vn.map4d.map.core.MFMapType;
 import vn.map4d.map.core.MFSupportMapFragment;
 import vn.map4d.map.core.Map4D;
 import vn.map4d.map.core.OnMapReadyCallback;
@@ -47,6 +48,7 @@ public class SettingsActivity extends AppCompatActivity implements OnMapReadyCal
     public void onListener() {
         findViewById(R.id.btnSetTime).setOnClickListener(this);
         findViewById(R.id.btnEnable3D).setOnClickListener(this);
+        findViewById(R.id.btnMapType).setOnClickListener(this);
     }
 
     @Override
@@ -90,6 +92,19 @@ public class SettingsActivity extends AppCompatActivity implements OnMapReadyCal
                     Date mDate = sdf.parse(givenDateString);
                     map4D.setTime(mDate);
                 } catch (ParseException e) {
+                }
+                break;
+            }
+            case R.id.btnMapType: {
+                if (map4D != null) {
+                    String info = "RASTER";
+                    MFMapType mapType = MFMapType.RASTER;
+                    if (map4D.getMapType() == MFMapType.RASTER) {
+                        mapType = MFMapType.ROADMAP;
+                        info = "ROADMAP";
+                    }
+                    Toast.makeText(getApplicationContext(), info, Toast.LENGTH_SHORT).show();
+                    map4D.setMapType(mapType);
                 }
                 break;
             }
