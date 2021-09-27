@@ -1,5 +1,6 @@
 package com.map4dsdk.demo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -97,10 +98,24 @@ public class MapEventsActivity extends AppCompatActivity implements OnMapReadyCa
             }
         });
 
+        map4D.setOnPOIClickListener(new Map4D.OnPOIClickListener() {
+            @Override
+            public void onPOIClick(String placeId, String name, MFLocationCoordinate location) {
+                txtMapState.setText("Click POI: " + name);
+            }
+        });
+
         map4D.setOnBuildingClickListener(new Map4D.OnBuildingClickListener() {
             @Override
             public void onBuildingClick(String s, String s1, MFLocationCoordinate mfLocationCoordinate) {
                 map4D.setSelectedBuildings(Arrays.asList(s));
+            }
+        });
+
+        map4D.setOnPlaceClickListener(new Map4D.OnPlaceClickListener() {
+            @Override
+            public void onPlaceClick(@NonNull String name, @NonNull MFLocationCoordinate location) {
+                txtMapState.setText("Click place: " + name);
             }
         });
 

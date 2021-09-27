@@ -4,6 +4,7 @@ import com.map4dsdk.demo.BuildingActivity;
 import com.map4dsdk.demo.BuildingOverlayActivity;
 import com.map4dsdk.demo.CameraAnimateActivity;
 import com.map4dsdk.demo.CircleActivity;
+import com.map4dsdk.demo.DirectionsRendererActivity;
 import com.map4dsdk.demo.GroundOverlayActivity;
 import com.map4dsdk.demo.MapEventsActivity;
 import com.map4dsdk.demo.MarkerActivity;
@@ -32,6 +33,7 @@ public class DemoDetailsList {
             new DemoDetails(R.string.tileOverlay, R.drawable.ic_tile_area, TileOverlayActivity.class),
             new DemoDetails(R.string.buildingOverlay, R.drawable.ic_tile_area, BuildingOverlayActivity.class),
             new DemoDetails(R.string.poiOverlay, R.drawable.ic_tile_area, PoiOverLayActivity.class),
-            new DemoDetails(R.string.groundOverlay, R.drawable.ic_tile_area, GroundOverlayActivity.class)
+            new DemoDetails(R.string.groundOverlay, R.drawable.ic_tile_area, GroundOverlayActivity.class),
+            new DemoDetails(R.string.directionsRenderer, R.drawable.ic_tile_area, DirectionsRendererActivity.class)
     };
 }

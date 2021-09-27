@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.map4dsdk.demo">
+  package="com.map4dsdk.demo">
 
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
+  <uses-feature
+    android:glEsVersion="0x00020000"
+    android:required="true" />
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".BuildingActivity"></activity>
-        <activity android:name=".PoiActivity" />
-        <activity android:name=".BuildingOverlayActivity" />
-        <activity android:name=".GroundOverlayActivity" />
-        <activity android:name=".TileOverlayActivity" />
-        <activity android:name=".PoiOverLayActivity" />
+  <application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+    <activity android:name=".DirectionsRendererActivity" />
+    <activity android:name=".BuildingActivity" />
+    <activity android:name=".PoiActivity" />
+    <activity android:name=".BuildingOverlayActivity" />
+    <activity android:name=".GroundOverlayActivity" />
+    <activity android:name=".TileOverlayActivity" />
+    <activity android:name=".PoiOverLayActivity" />
 
-        <meta-data
-            android:name="vn.map4d.map.ACCESS_KEY"
-            android:value="98fd21346d83bee24dc734231f7609c9" />
+    <meta-data
+      android:name="vn.map4d.map.ACCESS_KEY"
+      android:value="98fd21346d83bee24dc734231f7609c9" />
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+    <activity android:name=".MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Simple2DMapActivity" />
-        <activity android:name=".Simple3DMapActivity" />
-        <activity android:name=".CollectionsActivity" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".MarkerActivity" />
-        <activity android:name=".PolylineActivity" />
-        <activity android:name=".PolygonActivity" />
-        <activity android:name=".CircleActivity" /> <!-- <activity android:name=".TileAreaActivity" /> -->
-        <activity android:name=".MyLocationActivity" />
-        <activity android:name=".MapEventsActivity" />
-        <activity android:name=".CameraAnimateActivity" />
-    </application>
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:name=".Simple2DMapActivity" />
+    <activity android:name=".Simple3DMapActivity" />
+    <activity android:name=".CollectionsActivity" />
+    <activity android:name=".SettingsActivity" />
+    <activity android:name=".MarkerActivity" />
+    <activity android:name=".PolylineActivity" />
+    <activity android:name=".PolygonActivity" />
+    <activity android:name=".CircleActivity" /> <!-- <activity android:name=".TileAreaActivity" /> -->
+    <activity android:name=".MyLocationActivity" />
+    <activity android:name=".MapEventsActivity" />
+    <activity android:name=".CameraAnimateActivity" />
+  </application>
 
 </manifest>

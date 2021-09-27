@@ -61,6 +61,18 @@
         android:textColor="#ffffff"
         android:background="#0000ff"/>
     <Button
+      android:id="@+id/btnMapType"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+      android:layout_marginRight="10dp"
+      android:layout_above="@id/btnEnable3D"
+      android:text="@string/mapType"
+      android:textSize="16sp"
+      android:textColor="#0055ff"
+      android:textAllCaps="false" />
+
+    <Button
         android:id="@+id/btnEnable3D"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

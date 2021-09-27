@@ -13,6 +13,7 @@
     <string name="mapEvent">Map Events</string>
     <string name="cameraAnimate">Camera Animate</string>
     <string name="switchMode">3D Mode</string>
+    <string name="mapType">Map Type</string>
     <string name="mode3d">3D Mode</string>
     <string name="mode2d">2D Mode</string>
     <string name="auto">auto</string>
@@ -73,9 +74,12 @@
     <string name="poiOverlay">POI Overlay</string>
     <string name="groundOverlay">Ground Overlay</string>
     <string name="buildingOverlay">Building Overlay</string>
+    <string name="directionsRenderer">Directions Renderer</string>
     <string name="poi">POI</string>
     <string name="removePoi">Remove Poi</string>
     <string name="addPoi">Add Poi</string>
+    <string name="addDirections">Add Directions</string>
+    <string name="removeDirections">Remove Directions</string>
     <string name="building">Building</string>
     <string name="addBuilding">Add building</string>
     <string name="removeBuilding">Remove building</string>
